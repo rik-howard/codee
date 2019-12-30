@@ -1,0 +1,18 @@
+
+> records
+
+pkg: info.lrbh.codable.schema.statement info/lrbh/codable/schema/statement
+
+cls: info.lrbh.codable.schema.statement Introduction imp Statement null fld null null introduction
+imp: info.lrbh.codable.schema.statement Introduction info.lrbh.codable.schema.Expression
+imp: info.lrbh.codable.schema.statement Introduction info.lrbh.codable.schema.Statement
+fld: info.lrbh.codable.schema.statement Introduction expression Expression Expression new__Expression__()
+
+cls: info.lrbh.codable.schema.statement Iteration imp Statement null fld null null iteration
+imp: info.lrbh.codable.schema.statement Iteration info.lrbh.codable.schema.Statement
+fld: info.lrbh.codable.schema.statement Iteration instance String Instance new__String__()
+fld: info.lrbh.codable.schema.statement Iteration qualifier String Qualifier new__String__()
+fld: info.lrbh.codable.schema.statement Iteration qualifiee String Qualifiee new__String__()
+
+cls: info.lrbh.codable.schema.statement Ending imp Statement null null null null endling
+imp: info.lrbh.codable.schema.statement Ending info.lrbh.codable.schema.Statement

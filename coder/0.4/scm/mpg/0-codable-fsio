@@ -1,0 +1,30 @@
+
+> records
+
+pkg: info.lrbh.codable.fsio info/lrbh/codable/fsio cls
+
+ifc: info.lrbh.codable.fsio FSO null null null imd
+imd: info.lrbh.codable.fsio FSO setName void SetName
+irg: info.lrbh.codable.fsio FSO setName name String
+imd: info.lrbh.codable.fsio FSO name String Name
+imd: info.lrbh.codable.fsio FSO store void Store
+
+cls: info.lrbh.codable.fsio Line null null null fld null null line
+fld: info.lrbh.codable.fsio Line string String String new__String__()
+
+cls: info.lrbh.codable.fsio Foldee imp null iml fld mtv null foldee
+imp: info.lrbh.codable.fsio Foldee java.util.List
+imp: info.lrbh.codable.fsio Foldee java.util.ArrayList
+iml: info.lrbh.codable.fsio Foldee FSO
+fld: info.lrbh.codable.fsio Foldee name String Name new__String__()
+fld: info.lrbh.codable.fsio Foldee lines List__<Line> Lines new__ArrayList__<Line>__()
+mtv: info.lrbh.codable.fsio Foldee store Store
+
+cls: info.lrbh.codable.fsio Folder imp null iml fld mtv null folder
+imp: info.lrbh.codable.fsio Folder java.util.List
+imp: info.lrbh.codable.fsio Folder java.util.ArrayList
+iml: info.lrbh.codable.fsio Folder FSO
+fld: info.lrbh.codable.fsio Folder name String Name new__String__()
+fld: info.lrbh.codable.fsio Folder folders List__<Folder> Folders new__ArrayList__<Folder>__()
+fld: info.lrbh.codable.fsio Folder foldees List__<Foldee> Foldees new__ArrayList__<Foldee>__()
+mtv: info.lrbh.codable.fsio Folder store Store

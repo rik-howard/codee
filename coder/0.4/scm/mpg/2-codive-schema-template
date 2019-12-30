@@ -1,0 +1,50 @@
+
+> records
+
+pkg: info.lrbh.codive.schema.template info/lrbh/codive/schema/template
+
+mod: info.lrbh.codive.schema.template Cleaner imp null
+imp: info.lrbh.codive.schema.template Cleaner info.lrbh.codable.schema.template.Cleanment
+fno: info.lrbh.codive.schema.template Cleaner cleaning Cleaning Cleanment new__Cleanment__()
+arg: info.lrbh.codive.schema.template Cleaner cleaning cleanee String new__String__()
+arg: info.lrbh.codive.schema.template Cleaner cleaning opener String new__String__()
+arg: info.lrbh.codive.schema.template Cleaner cleaning closer String new__String__()
+arg: info.lrbh.codive.schema.template Cleaner cleaning margin String new__String__()
+
+mod: info.lrbh.codive.schema.template Tokeniser imp null
+imp: info.lrbh.codive.schema.template Tokeniser info.lrbh.codable.schema.template.Cleanment
+imp: info.lrbh.codive.schema.template Tokeniser info.lrbh.codable.schema.template.Token
+imp: info.lrbh.codive.schema.template Tokeniser java.util.List
+imp: info.lrbh.codive.schema.template Tokeniser java.util.ArrayList
+fno: info.lrbh.codive.schema.template Tokeniser tokenisation Tokenisation List__<Token> new__ArrayList__<Token>__()
+arg: info.lrbh.codive.schema.template Tokeniser tokenisation cleanment Cleanment new__Cleanment__()
+
+mod: info.lrbh.codive.schema.template Parser imp null
+imp: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.Parsement
+imp: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.Token
+imp: info.lrbh.codive.schema.template Parser java.util.List
+imp: info.lrbh.codive.schema.template Parser java.util.ArrayList
+fno: info.lrbh.codive.schema.template Parser parsing Parsing Parsement new__Parsement__()
+arg: info.lrbh.codive.schema.template Parser parsing tokens List__<Token> new__ArrayList__<Token>__()
+
+mod: info.lrbh.codive.schema.template Linker imp null
+imp: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.Record
+imp: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.Parsement
+imp: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.Link
+imp: info.lrbh.codive.schema.template Linker java.util.List
+imp: info.lrbh.codive.schema.template Linker java.util.ArrayList
+imp: info.lrbh.codive.schema.template Linker java.util.Map
+imp: info.lrbh.codive.schema.template Linker java.util.HashMap
+fno: info.lrbh.codive.schema.template Linker linking Linking List__<Link> new__ArrayList__<Link>__()
+arg: info.lrbh.codive.schema.template Linker linking parsement Parsement new__Parsement__()
+arg: info.lrbh.codive.schema.template Linker linking keyz List__<String> new__ArrayList__<String>__()
+arg: info.lrbh.codive.schema.template Linker linking recordz Map__<String,__Record> new__HashMap__<String,__Record>__()
+
+mod: info.lrbh.codive.schema.template Compiler imp null
+imp: info.lrbh.codive.schema.template Compiler info.lrbh.codable.schema.template.Link
+imp: info.lrbh.codive.schema.template Compiler info.lrbh.codable.schema.template.Compilement
+imp: info.lrbh.codive.schema.template Compiler java.util.List
+imp: info.lrbh.codive.schema.template Compiler java.util.ArrayList
+fno: info.lrbh.codive.schema.template Compiler compilation Compilation List__<Compilement> new__ArrayList__<Compilement>__()
+arg: info.lrbh.codive.schema.template Compiler compilation linkz List__<Link> new__ArrayList__<Link>__()
+arg: info.lrbh.codive.schema.template Compiler compilation eofMarker String new__String__()

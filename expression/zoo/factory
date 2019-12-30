@@ -1,0 +1,26 @@
+
+> relations
+Fcy: pkg.name* name*
+Fip: fcy.pkg.name* fcy.name* pkgRef* clsRef*
+
+> records
+
+> functions
+¢fcy (pkg): "fcy:" & pkg.name & joining (bicap (leaf (pkg.name, ".")), "Factory", "")
+¢fip (cmp): "fip:" & cmp.pkg.name & joining (bicap (leaf (cmp.pkg.name, ".")), "Factory", "") & cmp.pkgRef & cmp.clsRef
+fcyName (name): joining (bicap (leaf (name, ".")), "Factory", "")
+fcy (pkg): "fcy:" & pkg.name & fcyName (pkg.name)
+fip (cmp): "fip:" & cmp.pkg.name & fcyName (cmp.pkg.name) & cmp.pkgRef & cmp.clsRef
+
+> procedure
+for pkg in pkgz
+  intro fcy (pkg)
+  for cls in pkg.clsz
+    for cmp in cls.cmpz
+      intro fip (cmp)
+    end
+    for cfd in cls.cfdz  ¢ it feels like i shouldn't've to do this
+      intro fip (cfd)
+    end
+  end
+end

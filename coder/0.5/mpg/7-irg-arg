@@ -1,0 +1,49 @@
+
+> records
+
+cva: codive Main 0 args null String__OPRCSR new__String__OPR0CSR
+¢cva: codive Main 0 args null String__OPRCSR {"-code",__"-with",__"mfd/scm/dep"}
+
+cva: codive Cleaner 0 tptRoot null String new__String__()
+cva: codive Cleaner 0 mpgRoot null String new__String__()
+cva: codive Cleaner 0 depRoot null String new__String__()
+cva: codive Cleaner 0 incRoot null String new__String__()
+cva: codive Cleaner 0 cdtRoot null String new__String__()
+
+cva: codive Coder 0 tptRoot null String new__String__()
+cva: codive Coder 0 mpgRoot null String new__String__()
+cva: codive Coder 0 depRoot null String new__String__()
+cva: codive Coder 0 incRoot null String new__String__()
+cva: codive Coder 0 cdtRoot null String new__String__()
+
+cva: codive.schema Constructor 0 tptName null String new__String__()
+cva: codive.schema Constructor 0 tptLines null List__<Line> new__ArrayList__<Line>__()
+cva: codive.schema Constructor 0 mpgLines null List__<Line> new__ArrayList__<Line>__()
+cva: codive.schema Mapper 0 schema codable Schema new__Schema__()
+cva: codive.schema Transformer 0 schema codable Schema new__Schema__()
+cva: codive.schema Transformer 1 schema codable Schema new__Schema__()
+cva: codive.schema Injector 0 names null List__<String> new__ArrayList__<String>__()
+cva: codive.schema Injector 0 values null List__<String> new__ArrayList__<String>__()
+cva: codive.schema Injector 0 incFoldees null List__<Foldee> new__ArrayList__<Foldee>__()
+cva: codive.schema Aggregator 0 names null List__<String> new__ArrayList__<String>__()
+cva: codive.schema Aggregator 0 values null List__<String> new__ArrayList__<String>__()
+cva: codive.schema Persistor 0 folder fsio Folder new__Folder__()
+cva: codive.schema Persistor 0 foldens null List__<Folden> new__ArrayList__<Folden>__()
+
+cva: codive.schema.function Cleaner 0 cleanee null String new__String__()
+cva: codive.schema.function Tokeniser 0 tokenisee codable.schema.function Cleanment new__Cleanment__()
+cva: codive.schema.function Parser 0 parsee codable.schema.function Tokenisement new__Tokenisement__()
+cva: codive.schema.function Linker 0 linkee codable.schema.function Parsement new__Parsement__()
+cva: codive.schema.function Compiler 0 compilee codable.schema.function Linkment new__Linkment__()
+
+cva: codive.schema.procedure Cleaner 0 cleanee null List__<Line> new__ArrayList__<Line>__()
+cva: codive.schema.procedure Tokeniser 0 tokenisee codable.schema.procedure Cleanment new__Cleanment__()
+cva: codive.schema.procedure Parser 0 parsee codable.schema.procedure Tokenisement new__Tokenisement__()
+cva: codive.schema.procedure Linker 0 linkee codable.schema.procedure Parsement new__Parsement__()
+cva: codive.schema.procedure Compiler 0 compilee codable.schema.procedure Linkment new__Linkment__()
+
+cva: codive.schema.template Cleaner 0 cleanee null List__<Line> new__ArrayList__<Line>__()
+cva: codive.schema.template Tokeniser 0 tokenisee codable.schema.template Cleanment new__Cleanment__()
+cva: codive.schema.template Parser 0 parsee codable.schema.template Tokenisement new__Tokenisement__()
+cva: codive.schema.template Linker 0 linkee codable.schema.template Parsement new__Parsement__()
+cva: codive.schema.template Compiler 0 compilee codable.schema.template Linkment new__Linkment__()

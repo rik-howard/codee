@@ -1,0 +1,10 @@
+  private static final String raw (String [] strings)
+  {
+    StringBuffer buffer = new StringBuffer ();
+    String sep = " ";
+    if (strings == null) return null;
+    else for (String string: strings)
+      if (buffer.toString ().isEmpty ()) buffer.append (string);
+      else buffer.append (sep).append (string);
+    return buffer.toString ();
+  }

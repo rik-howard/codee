@@ -1,0 +1,17 @@
+#!/bin/bash
+
+home=$(dirname $0)
+javac="javac -sourcepath $home/src -d $home/tmp"
+
+rm -r $home/tmp 2> /dev/null
+mkdir $home/tmp
+
+[pkg:pkgz][cls:pkg.clsz]$javac $home/src/[pkg.folder]/[cls.name].java
+[][]
+
+javac="javac -sourcepath $home/src -cp $MYSQL_JAR:$home/tmp -d $home/tmp"
+
+[pkg:pkgz][cls:pkg.clsz]$javac $home/src/[pkg.folder]/[cls.name]Persistor.java
+[][]
+
+$javac $home/src/eg/Main.java

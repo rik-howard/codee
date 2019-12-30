@@ -1,0 +1,17 @@
+codee/schema/expression
+rik at lrbh info
+2010-10-03
+
+
+
+This schema is some codee.  When coded (by coder), it produces
+. a cleaner
+. a tokeniser
+. a parser
+. a linker (tbc)
+. a compiler (tbc)
+for use on some expressees.
+
+For reference, the codement, in cdt, has been stored in Subversion.
+
+This project has its own templates, which are, at the time of writing, identical to those used in codee/schema/coder.  (In other words, a solution is required for the problem of template duplication.)  There is a similar situation with set-up and symbols.

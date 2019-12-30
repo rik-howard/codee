@@ -1,0 +1,18 @@
+  private static final Boolean findsFlag (String flag)
+  {
+    return arguments.contains (flag);
+  }
+
+  private static final Boolean findsFlagged (String flag)
+  {
+    return arguments.indexOf (flag) + 1 < arguments.size ();
+  }
+
+  private static final String flagged (String flag)
+  {
+    if (findsFlag (flag))
+      if (findsFlagged (flag))
+        return arguments.get (arguments.indexOf (flag) + 1);
+      else return (String) nbNull (0, "the flagged was not found for: " + flag);
+    else return (String) nbNull (0, "the flag was not found: " + flag);
+  }

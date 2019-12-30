@@ -1,0 +1,175 @@
+2010-10-05
+
+This is a bit busted.  Finish expression first, then fix this.
+
+
+
+2010-08-14
+
+This project is ready (pretty much) to generate the outline for the next version of coder (which is probably 0.5).  It will be pretty faithful to the outline below.  The major omissions are the auxilliary and utility packages; the fsio package needs some attention.  Otherwise it should be pretty much there.  Very pretty.  Note that it is yet to handle self-referring classes and test units -- both of which have prototypes in the arc folder.
+
+
+
++ codable
+  * Schema
+    - String commentMarker  # etc
+    - (String: String) symbols
+    - (String: Relation) relations
+    - (String: Record) records
+    - (String: Function) functions
+    - Procedure procedure
+    - Template template
+    - Vertex vertex
+    - (String) keys
+    - String dump ()
+
+  + schema
+    * Relation
+      - String id
+      - (String) names
+    * Record
+      - String ref
+      - (String) names
+      - (String) values
+      - String key ()
+    * Expression
+      - String symbol
+      - Expression left
+      - Expression right
+      - String expressed (...)
+    * Function
+      - Signature signature
+      - Expression body
+      - String key ()
+    * Statement
+      - (Statement) statements
+      - String stated (...)
+    * Procedure
+      - (Statement) statements
+    * Template
+      - String eofMarker
+      - String margin  ¢ ~ solMarker ~ start-of-line marker
+      - String opener
+      - String closer
+      - (Statement) statements
+    * Vertex
+      - String prefix
+      - String infix
+      - String suffix
+      - String eofMarker
+
+    + expression
+      * Symbol  ¢ a context's symbol's key --> the context's symbol value
+      * RecordValue  ¢ a context's record's value's key --> ...
+      * Invocation
+      * Signature
+        - String expressed ( ... ): new UnsupportedOperationException ()
+      * Arithmetion
+
+    + function
+      * Tokenisement
+        - (String) tokens
+      * Linkment
+      - String symbol
+      - Linkment left
+      - Linkment right
+      * Compilement
+        - String string
+
+    + statement
+      * Introduction
+        - Expression expression
+      * Constant
+        - String symbol
+      * Variable
+        - String symbol
+      * Iteration
+        - String instance
+        - String qualifier
+        - String qualifiee
+      * Condition
+        - Predication predication
+        - String qualifier
+        - String qualifiee
+      * Alternative
+      * Ending
+
+    + procedure
+      * Linkment
+        - (String) links
+      * Compilement
+        - (String) strings
+
+    + template
+      * Cleanment
+      * Linkment
+      * Compilement
+
++ codive
+  * Main
+  * Coder
+    - void code (String targetString, (Line) mappingLines, (String: (Line)) templatesLines)
+  * Cleaner
+
+  + schema
+    * Constructor
+      - Schema construction (String vertexName, (Line) mappingLines, (Line) templateLines)
+    * Mapper
+      - Schema mapping (Schema schema)
+    * Transformer
+      - (String) namesTransformation (Schema schema)
+      - (String) valuesTransformation (Schema schema)
+    * Aggregator
+      - (FSO) aggregation ((String) names, (String) values)
+    * Persistor
+      - void persist ((FSO) fsoz)
+
+    + function
+      * Tokeniser
+        - Tokenisement tokenisation (String cleaned)
+      * Parser
+        - Expression parsing (Tokenisement tokenisement)
+      * Linker
+        - Linkment linking (Schema schema)
+      * Compiler
+        - Compilement compilation (Schema schema)
+
+    + procedure
+      * Parser
+        - (Statement) parsing ((Line) lines)
+      * Linker
+        - Linkment linking (Schema schema)
+      * Compiler
+        - Compilement compilation (Schema schema)
+
+    + template
+      * Cleaner
+        - Cleanment cleaning ((Line) lines, Schema schema)
+      * Tokeniser
+        - Tokenisement tokenisation (Cleanment cleanment, Schema schema)
+      * Parser
+        - (Statement) parsing (Tokenisement tokenisement, Schema schema)
+      * Linker
+        - Linkment linking (Schema schema)
+      * Compiler
+        - Compilement compilation (Linkment linkment, Schema schema)
+
++ codable.fsio
+  * FSO
+  * Folder
+  * Foldee
+  * Line
+
++ codive.schema.auxilliary
+  * Module
+  * Predicate
+  * CaseChecker
+
++ codive.utility
+  * Lister
+
+
+
+A factory template has been introduced.  The factories are parted by package.  Each factory has two methods for each class in its package: one is generated, providing a constructor based on the class's fields, the other is to be a customisation, invoking the generated method.
+
+This is the wrong approach, but it will do for now.  We should reuse the module template, with a suitable procedure introducing the required functions.  The schema then requires a statement relation to capture the functions' bodies.

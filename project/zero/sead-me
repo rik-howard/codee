@@ -1,0 +1,38 @@
+project/zero
+rik at lrbh info
+2010-09-12
+
+
+
+THIS MAY BE BOLLOX.
+
+Do this!
+
+  > source pjt=.../project
+  > $pjt/set-up
+  > $pjt/set-up -h
+  > $pjt/set-up -p
+  > $pjt/set-up -p read-me
+  > $pjt/set-up -p read-me project
+
+
+
+Now review the files in this order:
+. sead-me
+. set-up
+. up-setter
+
+
+
+Then, in scm, review
+. tpt/read-me
+. tpt/build
+. mpg/index
+
+
+
+preview: runs coder targetlessly
+skeleten
+: runs coder targetfully
+, replaces tokens
+, copies libs into plae

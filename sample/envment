@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if test -z "$OLD_PATH"
+then OLD_PATH=$PATH
+else PATH=$OLD_PATH
+fi
+
+export JAVA_HOME=~/work/program/sun-jdk-1.6.0.10
+export CODER_HOME=~/work/program/lrbh-coder-0.4
+export RECURSER_HOME=~/work/program/lrbh-recurser-0.6
+
+export PATH=\
+$JAVA_HOME/bin:\
+$CODER_HOME/bin:\
+$RECURSER_HOME/bin:\
+$PATH
+
+export MYSQL_JAR=~/work/program/mysql-connector-java-5.1.7/mysql-connector-java-5.1.7-bin.jar

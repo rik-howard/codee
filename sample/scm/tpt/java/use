@@ -1,0 +1,5 @@
+#!/bin/bash
+
+home=$(dirname $0)
+
+java -ea -cp $MYSQL_JAR:$home/tmp eg.Main

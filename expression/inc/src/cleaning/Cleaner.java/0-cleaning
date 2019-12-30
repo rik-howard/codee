@@ -1,0 +1,3 @@
+    if (idsComment (cleanee)) cleanee = decommed (cleanee);
+    while (idsQuotation (cleanee)) cleanee = dequoted (cleanee);
+    return cleanment (cleanee);

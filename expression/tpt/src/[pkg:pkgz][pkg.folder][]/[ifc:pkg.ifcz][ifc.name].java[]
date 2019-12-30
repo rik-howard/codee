@@ -1,0 +1,16 @@
+.                                  |
+.                                  | package [pkg.name];
+.[:exists:ifc.impz]                |
+.[imp:ifc.impz][:exists:imp.pkgRef]| import [imp.pkgRef].[imp.clsRef];
+.[][][]                            |
+.                                  | public interface [ifc.name]
+.[:exists:ifc.ixtz]                | extends [ixt:ifc.ixtz][ixt.clsRef][:isLast:ixt][:], [][]
+.[]                                | {
+.[:exists:ifc.ifdz]                |
+.[ifd:ifc.ifdz]                    |   public static final [ifd.clsRef] [ifd.name] = [ifd.value];
+.[][][:exists:ifc.imdz]            |
+.[imd:ifc.imdz]                    |   public [imd.clsRef] [imd.name] ([ima:imd.irgz][ima.clsRef] [ima.name][:isLast:ima][:], [][])[:exists:imd.itwz]
+.                                  |   throws [imt:imd.itwz][imt.clsRef][:isLast:imt][:], [][][];
+.                                  |
+.[][]                              | }
+.                                  |

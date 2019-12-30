@@ -1,0 +1,28 @@
+
+> records
+
+pkg: info.lrbh.codive.schema info/lrbh/codive/schema
+
+mod: info.lrbh.codive.schema Reader imp null
+imp: info.lrbh.codive.schema Reader info.lrbh.codable.Schema
+imp: info.lrbh.codive.schema Reader info.lrbh.codable.fsio.Line
+imp: info.lrbh.codive.schema Reader java.util.List
+imp: info.lrbh.codive.schema Reader java.util.ArrayList
+fno: info.lrbh.codive.schema Reader reading Reading Schema new__Schema__()
+arg: info.lrbh.codive.schema Reader reading vertexName String new__String__()
+arg: info.lrbh.codive.schema Reader reading templateLinez List__<Line> new__ArrayList__<Line>__()
+arg: info.lrbh.codive.schema Reader reading mappingLinez List__<Line> new__ArrayList__<Line>__()
+
+mod: info.lrbh.codive.schema Thinker imp null
+imp: info.lrbh.codive.schema Thinker info.lrbh.codable.Schema
+fno: info.lrbh.codive.schema Thinker thinking Thinking Schema new__Schema__()
+arg: info.lrbh.codive.schema Thinker thinking schema Schema new__Schema__()
+
+mod: info.lrbh.codive.schema Writer imp null
+imp: info.lrbh.codive.schema Writer info.lrbh.codable.Schema
+imp: info.lrbh.codive.schema Writer java.util.List
+imp: info.lrbh.codive.schema Writer java.util.ArrayList
+fno: info.lrbh.codive.schema Writer namesWriting NamesWriting List__<String> new__ArrayList__<String>__()
+arg: info.lrbh.codive.schema Writer namesWriting schema Schema new__Schema__()
+fno: info.lrbh.codive.schema Writer valuesWriting ValuesWriting List__<String> null
+arg: info.lrbh.codive.schema Writer valuesWriting schema Schema new__Schema__()

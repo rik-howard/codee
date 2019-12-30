@@ -1,0 +1,64 @@
+
+> records
+
+cmp: codable Schema codable.schema Relation
+cmp: codable Schema codable.schema Record
+cmp: codable Schema codable.schema Function
+
+cmp: codable.schema.procedure Parsement codable.schema Statement
+
+cmp: codable.schema.template Parsement codable.schema Statement
+
+mmp: codive.schema Constructor codable Schema
+mmp: codive.schema Constructor codable.fsio Line
+mmp: codive.schema Mapper codable Schema
+mmp: codive.schema Injector fsio Foldee
+mmp: codive.schema Aggregator fsio Folden
+mmp: codive.schema Persistor fsio Folden
+mmp: codive.schema Persistor fsio Folder
+
+mmp: codive.schema.procedure Cleaner codable.fsio Line
+mmp: codive.schema.procedure Parser codable.schema Statement
+
+mmp: codive.schema.template Cleaner codable.fsio Line
+mmp: codive.schema.template Parser codable.schema Statement
+
+cmp: codable.schema.function Tokenisement java.util List
+cmp: codable.schema.procedure Cleanment java.util List
+cmp: codable.schema.procedure Tokenisement java.util List
+cmp: codable.schema.procedure Parsement java.util List
+cmp: codable.schema.procedure Linkment java.util List
+cmp: codable.schema.procedure Compilement java.util List
+cmp: codable.schema.template Tokenisement java.util List
+cmp: codable.schema.template Parsement java.util List
+cmp: codable.schema.template Linkment java.util List
+cmp: codable.schema.template Compilement java.util List
+cmp: codable.schema.statement Iteration java.util List
+cmp: codable.schema.statement Condition java.util List
+cmp: codable.schema Relation java.util List
+cmp: codable.schema Record java.util List
+cmp: codable.schema Function java.util List
+cmp: codable.schema Procedure java.util List
+cmp: codable.schema Template java.util List
+cmp: codable Schema java.util List
+cmp: codable.schema.function Tokenisement java.util ArrayList
+cmp: codable.schema.procedure Cleanment java.util ArrayList
+cmp: codable.schema.procedure Tokenisement java.util ArrayList
+cmp: codable.schema.procedure Parsement java.util ArrayList
+cmp: codable.schema.procedure Linkment java.util ArrayList
+cmp: codable.schema.procedure Compilement java.util ArrayList
+cmp: codable.schema.template Tokenisement java.util ArrayList
+cmp: codable.schema.template Parsement java.util ArrayList
+cmp: codable.schema.template Linkment java.util ArrayList
+cmp: codable.schema.template Compilement java.util ArrayList
+cmp: codable.schema.statement Iteration java.util ArrayList
+cmp: codable.schema.statement Condition java.util ArrayList
+cmp: codable.schema Relation java.util ArrayList
+cmp: codable.schema Record java.util ArrayList
+cmp: codable.schema Function java.util ArrayList
+cmp: codable.schema Procedure java.util ArrayList
+cmp: codable.schema Template java.util ArrayList
+cmp: codable Schema java.util ArrayList
+
+cmp: codable Schema java.util Map
+cmp: codable Schema java.util HashMap

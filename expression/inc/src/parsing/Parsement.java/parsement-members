@@ -1,0 +1,24 @@
+  public String tree ()
+  {
+    String OPRCSR tokens = this
+    .toString ()
+    .replaceAll ("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\OPR", " OPR ")
+    .replaceAll ("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\MGN", " MGN ")
+    .replaceAll ("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\CSR", " CSR ")
+    .trim ()
+    .split (" +");
+    //
+    String indent = "";
+    StringBuffer buffer = new StringBuffer ();
+    for (String token: tokens)
+      if (token.equals ("OPR")) indent += "  ";
+      else if  (token.equals ("MGN")) ;
+      else if  (token.equals ("CSR")) indent = indent.substring (0, indent.length () - 2);
+      else
+      {
+        buffer.append ("\\\\\\\\\\\\\\\\n");
+        buffer.append (indent);
+        buffer.append (token);
+      }
+    return buffer.toString ();
+  }

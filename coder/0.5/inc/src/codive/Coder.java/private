@@ -1,0 +1,54 @@
+  private static final void code (List <Folden> tptFoldens, String mpgRoot, String depRoot, String incRoot, String cdtRoot)
+  throws IOException
+  {
+    for (Folden tptFolden: tptFoldens) code
+    (
+      tptFolden,
+      mpgRoot,
+      incRoot,
+      cdtRoot
+    );
+    code (depRoot, cdtRoot);
+  }
+
+  private static final void code (Folden tptFolden, String mpgRoot, String incRoot, String cdtRoot)
+  {
+    Schema schema = Constructor.construction
+    (
+      name (tptFolden),
+      lines (tptFolden),
+      lines (mpgRoot)
+    );
+    schema = Mapper.mapping (schema);
+    List <String> names = Transformer.namesTransformation (schema);
+    List <String> values = Transformer.valuesTransformation (schema);
+    assert names.size () == values.size ();
+    values = Injector.injection (names, values, foldees (incRoot));
+    List <Folden> foldens = Aggregator.aggregation (names, values);
+    Persistor.persist (folder (cdtRoot), foldens);
+  }
+
+  private static final void code (String depRoot, String cdtRoot)
+  throws IOException
+  {
+    if (cdtRoot == null) ;
+    else
+      for (Folden folden: foldens (depRoot))
+        if (folden instanceof Folder) code ((Folder) folden, cdtRoot);
+        else if (folden instanceof Foldee) code ((Foldee) folden, cdtRoot);
+        else nb (0, "the folden is neither a folder nor a file: " + folden);
+  }
+
+  private static final void code (Folder folder, String cdtRoot)
+  throws IOException
+  {
+    folder.setName (cdtRoot + File.separator + folder.name ());
+    folder.store ();
+  }
+
+  private static final void code (Foldee foldee, String cdtRoot)
+  throws IOException
+  {
+    foldee.setName (cdtRoot + File.separator + foldee.name ());
+    foldee.store ();
+  }

@@ -1,0 +1,44 @@
+.                            |
+.                            | package [pkg.name];
+.                            |
+.[imp:cls.impz]              | import [imp.name];
+.[]                          |
+.                            | public class [cls.name]
+.                            | {
+.                            |
+.[fld:cls.fldz]              |   private [fld.type] [fld.name] = [fld.default];
+.[]                          |
+.[fld:cls.fldz]              |   public void set[fld.classy] ([fld.type] [fld.name]) {this.[fld.name] = [fld.name];}
+.[]                          |
+.[fld:cls.fldz]              |   public [fld.type] get[fld.classy] () {return this.[fld.name];}
+.[]                          |
+.                            |   @Override public int hashCode ()
+.                            |   {
+.                            |     Integer code = 0;
+.[fld:cls.fldz]              |     code += this.get[fld.classy] () == null? 0: this.get[fld.classy] ().hashCode ();
+.[]                          |     return code;
+.                            |   }
+.                            |
+.                            |   @Override public boolean equals (Object object)
+.                            |   {
+.                            |     if (object == null) return false;
+.                            |     else if (object instanceof [cls.name])
+.                            |     {
+.                            |       Boolean equals = true;
+.[fld:cls.fldz][:isFirst:fld]|       [cls.name] that = ([cls.name]) object;
+.[]                          |       equals &= this.get[fld.classy] () == null? that.get[fld.classy] () == null: this.get[fld.classy] ().equals (that.get[fld.classy] ());
+.[]                          |       return equals;
+.                            |     }
+.                            |     else return false;
+.                            |   }
+.                            |
+.                            |   @Override public String toString ()
+.                            |   {
+.                            |     String sep = " | ";
+.                            |     StringBuffer buffer = new StringBuffer ("<");
+.[fld:cls.fldz]              |     buffer[:isFirst:fld][:].append (sep)[].append (this.get[fld.classy] ().toString ());
+.[]                          |     return buffer.append (">").toString ();
+.                            |   }
+.                            |
+.                            | }
+.                            |

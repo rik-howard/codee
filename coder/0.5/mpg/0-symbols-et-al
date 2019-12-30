@@ -1,0 +1,116 @@
+
+> symbols
+opener: [
+closer: ]
+margin: |
+comment: ¢
+eof: €
+
+> relations
+Pkg: name* folder
+
+Ifc: pkg.name* name*
+Imp: pkg.name* ifc.name* pkgRef* clsRef*
+Ixt: pkg.name* ifc.name* pkgRef* clsRef*
+Ifd: pkg.name* ifc.name* name* pkgRef clsRef value
+Imd: pkg.name* ifc.name* ordinal* name pkgRef clsRef
+Ima: pkg.name* ifc.name* imd.ordinal* name* pkgRef clsRef
+Imt: pkg.name* ifc.name* imd.ordinal* pkgRef* clsRef*
+
+Cls: pkg.name* name* humble default
+Cmp: pkg.name* cls.name* pkgRef* clsRef*
+Cxt: pkg.name* cls.name* pkgRef* clsRef*
+Cpl: pkg.name* cls.name* pkgRef* clsRef*
+Cfd: pkg.name* cls.name* name* pkgRef clsRef nll default classy
+Cmd: pkg.name* cls.name* ordinal* name vd pkgRef clsRef default classy
+Cma: pkg.name* cls.name* cmd.ordinal* name* pkgRef clsRef default
+Cmt: pkg.name* cls.name* cmd.ordinal* pkgRef* clsRef*
+
+Mod: pkg.name* name* humble
+Mmp: pkg.name* mod.name* pkgRef* clsRef*
+Mxt: pkg.name* mod.name* pkgRef* clsRef*
+Mfd: pkg.name* mod.name* name* pkgRef clsRef accy default classy
+Mmd: pkg.name* mod.name* ordinal* name vd pkgRef clsRef accy default classy
+Mma: pkg.name* mod.name* mmd.ordinal* name* pkgRef clsRef default
+Mmt: pkg.name* mod.name* mmd.ordinal* pkgRef* clsRef*
+
+> functions
+pkg (pkg): "pkg:" & pkg.name & replacement (pkg.name, ".", "/")
+imp (i): "imp:" & pkg.name & ifc.name & i.pkgRef & i.clsRef
+cmp (i): "cmp:" & pkg.name & cls.name & i.pkgRef & i.clsRef
+mmp (i): "mmp:" & pkg.name & mod.name & i.pkgRef & i.clsRef
+cls (cls): "cls:" & pkg.name & cls.name & camel (cls.name) & joining ("new", joining (cls.name, "\(\)", "__"), "__")
+mod (mod): "mod:" & pkg.name & mod.name & camel (mod.name)
+cfd (cfd): "cfd:" & pkg.name & cls.name & cfd.name & cfd.pkgRef & cfd.clsRef & cfd.nll & cfd.default & bicap (cfd.name)
+mfd (mfd): "mfd:" & pkg.name & mod.name & mfd.name & mfd.pkgRef & mfd.clsRef & mfd.accy & mfd.default & bicap (mfd.name)
+cmd (cmd): "cmd:" & pkg.name & cls.name & cmd.ordinal & cmd.name & cmd.vd & cmd.pkgRef & cmd.clsRef & cmd.default & bicap (cmd.name)
+mmd (mmd): "mmd:" & pkg.name & mod.name & mmd.ordinal & mmd.name & mmd.vd & mmd.pkgRef & mmd.clsRef & mmd.accy & mmd.default & bicap (mmd.name)
+
+> procedure
+for pkg in pkgz
+  intro pkg (pkg)
+end
+for pkg in pkgz
+  for ifc in pkg.ifcz
+    for ixt in ifc.ixtz
+      intro imp (ixt)
+    end
+    for ifd in ifc.ifdz
+      intro imp (ifd)
+    end
+    for imd in ifc.imdz
+      intro imp (imd)
+    end
+    for ima in ifc.imaz
+      intro imp (ima)
+    end
+    for imt in ifc.itwz
+      intro imp (imt)
+    end
+  end
+end
+for pkg in pkgz
+  for cls in pkg.clsz
+    intro cls (cls)
+    for cxt in cls.cxtz
+      intro cmp (cxt)
+    end
+    for cpl in cls.cplz
+      intro cmp (cpl)
+    end
+    for cfd in cls.cfdz
+      intro cfd (cfd)
+      intro cmp (cfd)
+    end
+    for cmd in cls.cmdz
+      intro cmp (cmd)
+      intro cmd (cmd)
+    end
+    for cmt in cls.cmtz
+      intro cmp (cmt)
+    end
+  end
+end
+for pkg in pkgz
+  intro pkg (pkg)
+  for mod in pkg.modz
+    intro mod (mod)
+    for mxt in mod.mxtz
+      intro mmp (mxt)
+    end
+    for mfd in mod.mfdz
+      intro mmp (mfd)
+      intro mfd (mfd)
+    end
+    for mmd in mod.mmdz
+      intro mmp (mmd)
+      intro mmd (mmd)
+    end
+    for mma in mod.mmaz
+      intro mmp (mma)
+    end
+    for mmt in mod.mmtz
+      intro mmp (mmt)
+    end
+  end
+end

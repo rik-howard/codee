@@ -1,0 +1,91 @@
+
+
+
+> relations
+
+Pkg: name* folder db
+Cls: pkg.name* name* humble
+Imp: pkg.name* cls.name* name*
+Fld: pkg.name* cls.name* name* type classy default
+
+Ufd: pkg.name* cls.name* name* jdbcType classy
+Efd: pkg.name* cls.name* name* jdbcType classy
+Sfd: pkg.name* cls.name* name*
+
+
+
+> records
+
+imp: eg.bio Person java.sql.Date
+
+
+
+> functions
+
+pkgName (can): can.name
+pkgFolder (can): replacement (can.name, ".", "/")
+pkgDb (can): leaf (can.name, ".")
+
+clsName (bean): bicap (bean.name)
+clsHumble (bean): camel (bean.name)
+
+impName (ugo): joining (ugo.refCan, bicap (ugo.refBean), ".")
+
+ugoFldName (ugo): ugo.name
+ugoFldType (ugo): bicap (ugo.refBean)
+ugoFldClassy (ugo): bicap (ugo.name)
+ugoFldDefault (ugo): ugo.javaDefault
+
+egoFldName (ego): ego.name
+egoFldType (ego): ego.javaType
+egoFldClassy (ego): bicap (ego.name)
+egoFldDefault (ego): ego.javaDefault
+
+ugoSfdName (ugo): joining (score (ugo.name), "id", "_")
+efdJdbcType (ego): ego.jdbcType
+
+pkg (can): "pkg:" & pkgName (can) & pkgFolder (can) & pkgDb (can)
+cls (can, bean): "cls:" & pkgName (can) & clsName (bean) & clsHumble (bean)
+imp (can, bean, ugo): "imp:" & pkgName (can) & clsName (bean) & impName (ugo)
+idFld (can, bean): "fld:" & pkgName (can) & clsName (bean) & "id" & "Integer" & "Id" & "new__Integer__(0)"
+ugoFld (can, bean, ugo): "fld:" & pkgName (can) & clsName (bean) & ugoFldName (ugo) & ugoFldType (ugo) & ugoFldClassy (ugo) & ugoFldDefault (ugo)
+egoFld (can, bean, ego): "fld:" & pkgName (can) & clsName (bean) & egoFldName (ego) & egoFldType (ego) & egoFldClassy (ego) & egoFldDefault (ego)
+
+ufd (can, bean, ugo): "ufd:" & pkgName (can) & clsName (bean) & ugoFldName (ugo) & "Int" & ugoFldClassy (ugo) & ugoFldDefault (ugo)
+efd (can, bean, ego): "efd:" & pkgName (can) & clsName (bean) & egoFldName (ego) & efdJdbcType (ego) & egoFldClassy (ego) & egoFldDefault (ego)
+ugoSfd (can, bean, ugo): "sfd:" & pkgName (can) & clsName (bean) & ugoSfdName (ugo)
+egoSfd (can, bean, ego): "sfd:" & pkgName (can) & clsName (bean) & egoFldName (ego)
+
+
+
+> procedure
+
+¢ the following introductions are for the value classes
+for can in canz
+  intro pkg (can)
+  for bean in can.beanz
+    intro cls (can, bean)
+    intro idFld (can, bean)
+    for ugo in bean.ugoz
+      intro imp (can, bean, ugo)
+      intro ugoFld (can, bean, ugo)
+    end
+    for ego in bean.egoz
+      intro egoFld (can, bean, ego)
+    end
+  end
+end
+
+¢ the following introductions are for the persistor classes
+for can in canz
+  for bean in can.beanz
+    for ugo in bean.ugoz
+      intro ugoSfd (can, bean, ugo)
+      intro ufd (can, bean, ugo)
+    end
+    for ego in bean.egoz
+      intro egoSfd (can, bean, ego)
+      intro efd (can, bean, ego)
+    end
+  end
+end

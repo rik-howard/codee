@@ -1,0 +1,13 @@
+
+> records
+
+pkg: info.lrbh.codable.schema.procedure info/lrbh/codable/schema/procedure
+
+cls: info.lrbh.codable.schema.procedure Link null null null fld null null link
+fld: info.lrbh.codable.schema.procedure Link string String String new__String__()
+
+cls: info.lrbh.codable.schema.procedure Compilement imp null null fld null null compilement
+imp: info.lrbh.codable.schema.procedure Compilement java.util.List
+imp: info.lrbh.codable.schema.procedure Compilement java.util.ArrayList
+imp: info.lrbh.codable.schema.procedure Compilement info.lrbh.codable.fsio.Line
+fld: info.lrbh.codable.schema.procedure Compilement lines List__<Line> Lines new__ArrayList__<Line>__()

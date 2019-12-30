@@ -1,0 +1,33 @@
+#!/bin/bash
+
+function removeTargetIfExists ()
+{
+  if test -d "$tgt"
+  then
+    echo
+    echo "removing $tgt"
+    echo
+    rm -r $(ls $tgt | sed "s|\(.*\)|$tgt/\1|")
+  fi
+}
+
+home=$(dirname $0)
+tgt=$1
+
+if test -n "$tgt"
+then
+  removeTargetIfExists
+  code -from $home/scm/tpt -with $home/scm/mpg -to "$tgt"
+  recurser replace e "$tgt/java/src" "OPN" "["
+  recurser replace e "$tgt/java/src" "CLS" "]"
+  recurser replace e "$tgt/java/src" "__" " "
+  chmod 755 "$tgt/sql/create"
+  chmod 755 "$tgt/java/compile"
+  chmod 755 "$tgt/java/use"
+  "$tgt/sql/create"
+  "$tgt/java/compile"
+  "$tgt/java/use"
+else
+  code -from $home/scm/tpt -with $home/scm/mpg
+  echo 'set-up coded-sample'
+fi

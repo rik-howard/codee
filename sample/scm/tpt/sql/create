@@ -1,0 +1,10 @@
+#!/bin/bash
+
+home=$(dirname $0)
+mysql="mysql -u root -proot"
+
+[d:dbz]$mysql < $home/src/[d.name]/database.sql
+[t:d.tbz]$mysql < $home/src/[d.name]/[t.name]/table.sql
+$mysql < $home/src/[d.name]/[t.name]/procedures.sql
+$mysql < $home/src/[d.name]/[t.name]/functions.sql
+[][]

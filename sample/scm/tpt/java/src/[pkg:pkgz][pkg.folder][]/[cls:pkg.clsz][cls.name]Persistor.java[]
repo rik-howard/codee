@@ -1,0 +1,160 @@
+.                            |
+.                            | package [pkg.name];
+.                            |
+.                            | import java.sql.Connection;
+.                            | import java.sql.DriverManager;
+.                            | import java.sql.PreparedStatement;
+.                            | import java.sql.ResultSet;
+.                            | import java.sql.SQLException;
+.                            | import java.util.ArrayList;
+.                            | import java.util.List;
+.                            |
+.                            | public class [cls.name]Persistor
+.                            | {
+.                            |
+.                            |   private Connection connection = null;
+.                            |   private PreparedStatement statement = null;
+.                            |   private ResultSet set = null;
+.                            |
+.                            |   public [cls.name] insertion ([cls.name] [cls.humble])
+.                            |   throws ClassNotFoundException, SQLException
+.                            |   {
+.                            |     this.openConnection ();
+.                            |     this.statement = this.connection.prepareStatement
+.                            |     (
+.                            |       "insert [pkg.db].[cls.humble] ([sfd:cls.sfdz][sfd.name][:isLast:sfd][:], [][]) values ([sfd:cls.sfdz]?[:isLast:sfd][:], [][]);",
+.                            |       PreparedStatement.RETURN_GENERATED_KEYS
+.                            |     );
+.                            |     Integer counter = 0;
+.[ufd:cls.ufdz]              |     this.statement.setInt (++counter, [cls.humble].get[ufd.classy] ().getId ());
+.[][efd:cls.efdz]            |     this.statement.set[efd.jdbcType] (++counter, [cls.humble].get[efd.classy] ());
+.[]                          |     int rowCount = this.statement.executeUpdate ();
+.                            |     if (rowCount == 1)
+.                            |     {
+.                            |       this.set = this.statement.getGeneratedKeys ();
+.                            |       if (this.set.next ()) [cls.humble].setId (this.set.getInt ("GENERATED_KEY"));
+.                            |       else this.throwException ("the automatically generated key was not returned");
+.                            |     }
+.                            |     else this.throwException ("non-singular rowCount == " + rowCount);
+.                            |     this.closeConnection ();
+.                            |     return [cls.humble];
+.                            |   }
+.                            |
+.                            |   public [cls.name] updating ([cls.name] [cls.humble])
+.                            |   throws ClassNotFoundException, SQLException
+.                            |   {
+.                            |     this.openConnection ();
+.                            |     this.statement = this.connection.prepareStatement
+.                            |     (
+.                            |       "update [pkg.db].[cls.humble] set [sfd:cls.sfdz][sfd.name] = ?[:isLast:sfd][:], [][] where id = ?;"
+.                            |     );
+.                            |     Integer counter = 0;
+.[ufd:cls.ufdz]              |     this.statement.setInt (++counter, [cls.humble].get[ufd.classy] ().getId ());
+.[][efd:cls.efdz]            |     this.statement.set[efd.jdbcType] (++counter, [cls.humble].get[efd.classy] ());
+.[]                          |     this.statement.setInt (++counter, [cls.humble].getId ());
+.                            |     int rowCount = this.statement.executeUpdate ();
+.                            |     if (rowCount == 1) ; // then all is well
+.                            |     else this.throwException ("non-singular rowCount == " + rowCount);
+.                            |     this.closeConnection ();
+.                            |     return [cls.humble];
+.                            |   }
+.                            |
+.                            |   public void delete ([cls.name] [cls.humble])
+.                            |   throws ClassNotFoundException, SQLException
+.                            |   {
+.                            |     this.openConnection ();
+.                            |     this.statement = this.connection.prepareStatement
+.                            |     (
+.                            |       "delete from [pkg.db].[cls.humble] where id = ?;"
+.                            |     );
+.                            |     this.statement.setInt (1, [cls.humble].getId ());
+.                            |     int rowCount = this.statement.executeUpdate ();
+.                            |     if (rowCount == 1) ; // then all is well
+.                            |     else this.throwException ("non-singular rowCount == " + rowCount);
+.                            |     this.closeConnection ();
+.                            |   }
+.                            |
+.                            |   public List <[cls.name]> selection ()
+.                            |   throws ClassNotFoundException, SQLException
+.                            |   {
+.                            |     this.openConnection ();
+.                            |     this.statement = this.connection.prepareStatement
+.                            |     (
+.                            |       "select * from [pkg.db].[cls.humble];"
+.                            |     );
+.                            |     this.set = this.statement.executeQuery ();
+.                            |     List <[cls.name]> [cls.humble]z = this.[cls.humble]z ();
+.                            |     this.closeConnection ();
+.                            |     return [cls.humble]z;
+.                            |   }
+.                            |
+.                            |   public [cls.name] selectionById (Integer id)
+.                            |   throws ClassNotFoundException, SQLException
+.                            |   {
+.                            |     this.openConnection ();
+.                            |     this.statement = this.connection.prepareStatement
+.                            |     (
+.                            |       "select * from [pkg.db].[cls.humble] where id = ?;"
+.                            |     );
+.                            |     this.statement.setInt (1, id);
+.                            |     this.set = this.statement.executeQuery ();
+.                            |     [cls.name] [cls.humble] = this.[cls.humble] ();
+.                            |     this.closeConnection ();
+.                            |     return [cls.humble];
+.                            |   }
+.                            |
+.                            |   private List <[cls.name]> [cls.humble]z ()
+.                            |   throws SQLException
+.                            |   {
+.                            |     List <[cls.name]> [cls.humble]z = new ArrayList <[cls.name]> ();
+.                            |     [cls.name] [cls.humble] = this.[cls.humble] ();
+.                            |     while ([cls.humble] != null)
+.                            |     {
+.                            |       [cls.humble]z.add ([cls.humble]);
+.                            |       [cls.humble] = this.[cls.humble] ();
+.                            |     }
+.                            |     return [cls.humble]z;
+.                            |   }
+.                            |
+.                            |   private [cls.name] [cls.humble] ()
+.                            |   throws SQLException
+.                            |   {
+.                            |     [cls.name] [cls.humble];
+.                            |     if (this.set.next ())
+.                            |     {
+.                            |       [cls.humble] = new [cls.name] ();
+.                            |       [cls.humble].setId (this.set.getInt ("id"));
+.[ufd:cls.ufdz]              |       [cls.humble].get[ufd.classy] ().setId (this.set.getInt ("[ufd.name]_id"));
+.[][efd:cls.efdz]            |       [cls.humble].set[efd.classy] (this.set.get[efd.jdbcType] ("[efd.name]"));
+.[]                          |     }
+.                            |     else [cls.humble] = null;
+.                            |     return [cls.humble];
+.                            |   }
+.                            |
+.                            |   private void openConnection ()
+.                            |   throws ClassNotFoundException, SQLException
+.                            |   {
+.                            |     Class.forName ("com.mysql.jdbc.Driver");
+.                            |     this.connection = DriverManager.getConnection ("jdbc:mysql:///", "root", "root");
+.                            |   }
+.                            |
+.                            |   private void closeConnection ()
+.                            |   throws SQLException
+.                            |   {
+.                            |     if (this.set != null) this.set.close ();
+.                            |     if (this.statement != null) this.statement.close ();
+.                            |     if (this.connection != null) this.connection.close ();
+.                            |     this.set = null;
+.                            |     this.statement = null;
+.                            |     this.connection = null;
+.                            |   }
+.                            |
+.                            |   private void throwException (String reason)
+.                            |   throws SQLException
+.                            |   {
+.                            |     this.closeConnection ();
+.                            |     throw new SQLException (reason);
+.                            |   }
+.                            |
+.                            | }
+.                            |

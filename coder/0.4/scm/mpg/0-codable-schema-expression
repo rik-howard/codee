@@ -1,0 +1,16 @@
+
+> records
+
+pkg: info.lrbh.codable.schema.expression info/lrbh/codable/schema/expression
+
+cls: info.lrbh.codable.schema.expression Token null null null fld null null token
+fld: info.lrbh.codable.schema.expression Token string String String new__String__()
+
+src: info.lrbh.codable.schema.expression Linkment null null null srf null null linkment
+srf: info.lrbh.codable.schema.expression Linkment string String String new__String__() null
+srf: info.lrbh.codable.schema.expression Linkment left Linkment Left null sr
+srf: info.lrbh.codable.schema.expression Linkment right Linkment Right null sr
+
+cls: info.lrbh.codable.schema.expression Compilement imp null null fld null null compilement
+imp: info.lrbh.codable.schema.expression Compilement info.lrbh.codable.fsio.Line
+fld: info.lrbh.codable.schema.expression Compilement line Line Line new__Line__()

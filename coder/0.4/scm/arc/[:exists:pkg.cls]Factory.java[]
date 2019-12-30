@@ -1,0 +1,18 @@
+
+.                                             |
+.                                             | package X[pkg.name];
+.                                             |
+.[cls:pkg.clsz][:exists:cls.imp][imp:cls.impz]| import [imp.name];
+.[][][]                                       |
+.                                             | public class Factory
+.                                             | {
+.                                             |
+.[cls:pkg.clsz]                               |   public static [cls.name] [cls.humble] ([fld:cls.fldz][fld.type] [fld.name][:isLast:fld][:], [][]))
+.                                             |   {
+.                                             |     [cls.name] [cls.humble] = new [cls.name] ();
+.[fld:cls.fldz]                               |     [cls.humble].set[fld.classy] ([fld.name]);
+.[]                                           |     return [cls.humble];
+.                                             |   }
+.                                             |
+.[]                                           | }
+.                                             |

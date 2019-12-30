@@ -1,0 +1,19 @@
+
+> symbols
+opener: [
+closer: ]
+margin: |
+comment: ¢
+eof: €
+
+> relations
+Project: name classy humble dashed scored
+
+> records
+project: project-zero
+
+> functions
+project (project): "project:" & project.name & bicap (project.name) & camel (project.name) & hyphe (project.name) & score (project.name)
+
+> procedure
+intro project (project)

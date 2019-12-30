@@ -1,0 +1,4 @@
+    if (parsee.hasMoreTokens ())
+      if (binaryInfixMajor.size () > 0) return binaryInfix (parsee, "P0");
+      else return binaryPrefix (parsee);
+    else return new Parsement ();

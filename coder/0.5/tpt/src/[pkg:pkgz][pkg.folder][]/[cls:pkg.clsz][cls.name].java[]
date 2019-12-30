@@ -1,0 +1,64 @@
+
+.                                    |
+.                                    | package [pkg.name];
+.[:exists:cls.cmpz]                  |
+.[cmp:cls.cmpz][:exists:cmp.pkgRef]  | import [cmp.pkgRef].[cmp.clsRef];
+.[][][]                              | // @[cls.humble]-imports
+.                                    |
+.                                    | public class [cls.name]
+.[:exists:cls.cxtz]                  | extends [cxt:cls.cxtz][cxt.clsRef][:isLast:cxt][:], [][]
+.[][:exists:cls.cplz]                | implements [cpl:cls.cplz][cpl.clsRef][:isLast:cpl][:], [][]
+.[]                                  | {
+.[:exists:cls.cfdz]                  |
+.[cfd:cls.cfdz]                      |   private [cfd.clsRef] [cfd.name];
+.[]                                  |
+.[cfd:cls.cfdz][:exists:cfd.nll]     |   public void set[cfd.classy] ([cfd.clsRef] [cfd.name]) {this.[cfd.name] = [cfd.name];}
+.[:]                                 |   public void set[cfd.classy] ([cfd.clsRef] [cfd.name]) {this.[cfd.name] = [cfd.name] == null? [cfd.default]: [cfd.name];}
+.[][]                                |
+.[cfd:cls.cfdz][:exists:cfd.nll]     |   public [cfd.clsRef] [cfd.name] () {return this.[cfd.name];}
+.[:]                                 |   public [cfd.clsRef] [cfd.name] () {if (this.[cfd.name] == null) this.set[cfd.classy] (null); return this.[cfd.name];}
+.[][][]                              |
+.                                    |
+.                                    |   @Override public int hashCode ()
+.                                    |   {
+.                                    |     Integer code = 0;
+.[:exists:cls.cxtz]                  |     code += super.hashCode ();
+.[][cfd:cls.cfdz][:exists:cfd.nll]   |     code += this.[cfd.name] () == null? 0: this.[cfd.name] ().hashCode ();
+.[:]                                 |     code += this.[cfd.name] ().hashCode ();
+.[][]                                |     return code;
+.                                    |   }
+.                                    |
+.                                    |   @Override public boolean equals (Object object)
+.                                    |   {
+.                                    |     if (object == null) return false;
+.                                    |     else if (object instanceof [cls.name])
+.                                    |     {
+.                                    |       Boolean equals = true;
+.[:exists:cls.cxtz]                  |       [cls.name] that = ([cls.name]) object;
+.[:][:exists:cls.cfdz]               |       [cls.name] that = ([cls.name]) object;
+.[][][:exists:cls.cxtz]              |       equals &= super.equals (that);
+.[][cfd:cls.cfdz][:exists:cfd.nll]   |       equals &= this.[cfd.name] () == null? that.[cfd.name] () == null: this.[cfd.name] ().equals (that.[cfd.name] ());
+.[:]                                 |       equals &= this.[cfd.name] ().equals (that.[cfd.name] ());
+.[][]                                |       return equals;
+.                                    |     }
+.                                    |     else return false;
+.                                    |   }
+.                                    |
+.                                    |   @Override public String toString ()
+.                                    |   {
+.                                    |     StringBuffer buffer = new StringBuffer ("OPR");
+.[cfd:cls.cfdz]                      |     [:exists:cfd.nll]if (this.[cfd.name] () != null) []buffer[:isFirst:cfd][:].append (" MGN ")[].append (this.[cfd.name] ());
+.[][:exists:cls.cxtz][cxt:cls.cxtz]  |     if (! super.equals (new [cxt.clsRef] ())) buffer[:exists:cls.cfdz].append (" MGN ")[].append (super.toString ());
+.[][]                                |     return buffer.append ("CSR").toString ();
+.                                    |   }
+.                                    |
+.[:exists:cls.cmdz][cmd:cls.cmdz]    |   public [cmd.clsRef] [cmd.name] ([cma:cmd.cmaz][cma.clsRef] [cma.name][:isLast:cma][:], [][])[:exists:cmd.cmtz]
+.                                    |   throws [cmt:cmd.cmtz][cmt.clsRef][:isLast:cmt][:], [][][]
+.                                    |   {
+.                                    |     [:exists:cmd.vd][:]return [][cmd.default];  // @[cmd.ordinal]-[cmd.name]
+.                                    |   }
+.                                    |
+.[][]                                |   // @[cls.humble]-members
+.                                    |
+.                                    | }
+.                                    |

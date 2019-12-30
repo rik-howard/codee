@@ -1,0 +1,28 @@
+  public Boolean hasMoreTokens ()
+  {
+    return this.index () < this.tokens ().size ();
+  }
+
+  public Boolean tokenIs (String token)
+  {
+    return this.hasMoreTokens ()? first (this.tokens ()).equals (token): token == null;
+  }
+
+  public Boolean tokenIsOne (List <String> tokens)
+  {
+    if (tokens == null) return false;
+    else if (this.hasMoreTokens ())
+      return tokens.contains (first (this.tokens ()));
+    else return false;
+  }
+
+  public String token ()
+  {
+    if (this.hasMoreTokens ())
+    {
+      String token = first (this.tokens ());
+      this.setTokens (rest (this.tokens ()));
+      return token;
+    }
+    else return null;
+  }

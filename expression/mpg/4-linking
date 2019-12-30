@@ -1,0 +1,37 @@
+
+> records
+
+¢ Pkg: name* folder
+¢ Ifc: pkg.name* name*
+¢ Imp: pkg.name* ifc.name* pkgRef* clsRef*
+¢ Ixt: pkg.name* ifc.name* pkgRef* clsRef*
+¢ Ifd: pkg.name* ifc.name* name* pkgRef clsRef value
+¢ Imd: pkg.name* ifc.name* ordinal* name pkgRef clsRef
+¢ Ima: pkg.name* ifc.name* imd.ordinal* name* pkgRef clsRef
+¢ Imt: pkg.name* ifc.name* imd.ordinal* pkgRef* clsRef*
+¢ Cls: pkg.name* name* humble default
+¢ Cmp: pkg.name* cls.name* pkgRef* clsRef*
+¢ Cxt: pkg.name* cls.name* pkgRef* clsRef*
+¢ Cpl: pkg.name* cls.name* pkgRef* clsRef*
+¢ Cfd: pkg.name* cls.name* name* pkgRef clsRef nll default classy
+¢ Cmd: pkg.name* cls.name* ordinal* name vd pkgRef clsRef default classy
+¢ Cma: pkg.name* cls.name* cmd.ordinal* name* pkgRef clsRef default
+¢ Cmt: pkg.name* cls.name* cmd.ordinal* pkgRef* clsRef*
+¢ Mod: pkg.name* name* humble
+¢ Mmp: pkg.name* mod.name* pkgRef* clsRef*
+¢ Mxt: pkg.name* mod.name* pkgRef* clsRef*
+¢ Mfd: pkg.name* mod.name* name* pkgRef clsRef accy default classy
+¢ Mmd: pkg.name* mod.name* ordinal* name vd pkgRef clsRef accy default classy
+¢ Mma: pkg.name* mod.name* mmd.ordinal* name* pkgRef clsRef default
+¢ Mmt: pkg.name* mod.name* mmd.ordinal* pkgRef* clsRef*
+
+pkg: linking
+
+cls: linking Linkment
+cfd: linking Linkment pivot x String x new__String__()
+cfd: linking Linkment left x Linkment o new__Linkment__()
+cfd: linking Linkment right x Linkment o new__Linkment__()
+
+mod: linking Linker
+mmd: linking Linker 0 linking x x Linkment public new__Linkment__()
+mma: linking Linker 0 linkee parsing Parsement new__Parsement__()

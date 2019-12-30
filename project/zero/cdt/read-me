@@ -1,0 +1,44 @@
+project-zero
+<developer | name | <[]>> at lrbh info
+2010-09-10
+
+
+
+Some other forms of the project's name:
+ ProjectZero
+ projectZero
+ project-zero
+ project_zero
+
+
+
+What is ...
+
+The content of a file in the inc-folder gets inserted at the demarcated place in the content a file in the cmt-folder.
+
+then
+  then
+  now
+  then
+    then
+    now
+  now
+now
+
+
+
+How to ...
+
+In the template, create a line containing the path, relative from the inc-folder, to the inc-file.  For example, the path to this inc-file, relative from the inc-folder, is read-me/how-to.  Therefore, for this text to be in the content of the files generated to the cmt-folder, there must be a line in the content of a tpt-file containing the string read-me/how-to.
+
+In order for this process not to wreak havoc on your generated coded, by blindly replacing matching strings in the generated code, each source-target mapping is specified in tpt/index.  Why is a file stipulating some mappings housed with the templates and not with the mappings?  It is so because it is often desirable to obtain these mappings as a part of the generation process.
+
+
+
+Some symbols, to be replaced
+
+[
+  |,
+  ¢,
+  €
+]

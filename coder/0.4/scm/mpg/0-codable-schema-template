@@ -1,0 +1,25 @@
+
+> records
+
+pkg: info.lrbh.codable.schema.template info/lrbh/codable/schema/template
+
+cls: info.lrbh.codable.schema.template Cleanment null null null fld null null cleanment
+fld: info.lrbh.codable.schema.template Cleanment string String String new__String__()
+fld: info.lrbh.codable.schema.template Cleanment opener String Opener new__String__()
+fld: info.lrbh.codable.schema.template Cleanment closer String Closer new__String__()
+
+cls: info.lrbh.codable.schema.template Token null null null fld null null token
+fld: info.lrbh.codable.schema.template Token string String String new__String__()
+fld: info.lrbh.codable.schema.template Token opener String Opener new__String__()
+fld: info.lrbh.codable.schema.template Token closer String Closer new__String__()
+
+cls: info.lrbh.codable.schema.template Parsement imp null null fld null null parsement
+imp: info.lrbh.codable.schema.template Parsement java.util.List
+imp: info.lrbh.codable.schema.template Parsement java.util.ArrayList
+fld: info.lrbh.codable.schema.template Parsement parsements List__<Parsement> Parsements new__ArrayList__<Parsement>__()
+
+cls: info.lrbh.codable.schema.template Link null null null fld null null link
+fld: info.lrbh.codable.schema.template Link value String Value new__String__()
+
+cls: info.lrbh.codable.schema.template Compilement null null null fld null null compilement
+fld: info.lrbh.codable.schema.template Compilement value String Value new__String__()

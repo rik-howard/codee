@@ -1,0 +1,23 @@
+
+.                                     |
+.                                     | package [pkg.name];
+.[:exists:mod.mmpz]                   |
+.[mmp:mod.mmpz][:exists:mmp.pkgRef]   | import [mmp.pkgRef].[mmp.clsRef];
+.[][][]                               | // @[mod.humble]-imports
+.                                     |
+.                                     | public class [mod.name]
+.[:exists:mod.mxtz]                   | extends [mxt:mod.mxtz][mxt.clsRef][:isLast:mxt][:], [][]
+.[]                                   | {
+.[:exists:mod.mfdz]                   |
+.[mfd:mod.mfdz]                       |   [mfd.accy] static final [mfd.clsRef] [mfd.name] = [mfd.default];
+.[][]                                 |
+.[mmd:mod.mmdz]                       |   [mmd.accy] static final [mmd.clsRef] [mmd.name] ([mma:mmd.mmaz][mma.clsRef] [mma.name][:isLast:mma][:], [][])[:exists:mmd.mmtz]
+.                                     |   throws [mmt:mmd.mmtz][mmt.clsRef][:isLast:mmt][:], [][][]
+.                                     |   {
+.                                     |     [:exists:mmd.vd][:]return [][mmd.default];  // @[mmd.ordinal]-[mmd.name]
+.                                     |   }
+.                                     |
+.[]                                   |   // @[mod.humble]-members
+.                                     |
+.                                     | }
+.                                     |

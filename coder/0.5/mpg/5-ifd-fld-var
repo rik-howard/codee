@@ -1,0 +1,80 @@
+
+> records
+
+ifd: codable Schematic sectorRelations null String "relations"
+ifd: codable Schematic sectorRecords null String "records"
+ifd: codable Schematic sectorFunctions null String "functions"
+ifd: codable Schematic sectorProcedure null String "procedure"
+ifd: codable Schematic sectorTemplate null String "template"
+
+cfd: codable Schema relations null Map__<String,__Relation> x new__HashMap__<String,__Relation>__()
+cfd: codable Schema records null Map__<String,__Record> x new__HashMap__<String,__Record>__()
+cfd: codable Schema functions null Map__<String,__Function> x new__HashMap__<String,__Function>__()
+cfd: codable Schema procedure codable.schema Procedure x new__Procedure__()
+cfd: codable Schema template codable.schema Template x new__Template__()
+cfd: codable Schema vertex codable.schema Vertex x new__Vertex__()
+cfd: codable Schema keys null List__<String> x new__ArrayList__<String>__()
+
+cfd: codable.schema Relation id null String x new__String__()
+cfd: codable.schema Relation names null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema Record ref null String x new__String__()
+cfd: codable.schema Record names null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema Record values null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema Function name null String x new__String__()
+cfd: codable.schema Function paramz null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema Function expression codable.schema Expression x new__Expression__()
+cfd: codable.schema Procedure statements null List__<Statement> x new__ArrayList__<Statement>__()
+cfd: codable.schema Template statements null List__<Statement> x new__ArrayList__<Statement>__()
+cfd: codable.schema Vertex prefix null String x new__String__()
+cfd: codable.schema Vertex infix null String x new__String__()
+cfd: codable.schema Vertex suffix null String x new__String__()
+
+cfd: codable.schema.expression Constant value null String x ""
+cfd: codable.schema.expression Variable name null String x ""
+cfd: codable.schema.expression Invocation symbol null String x ""
+cfd: codable.schema.expression Invocation left codable.schema Expression o new__Expression__()
+cfd: codable.schema.expression Invocation right codable.schema Expression o new__Expression__()
+cfd: codable.schema.expression Arithmetion symbol null String x ""
+cfd: codable.schema.expression Arithmetion left codable.schema Expression o new__Expression__()
+cfd: codable.schema.expression Arithmetion right codable.schema Expression o new__Expression__()
+
+cfd: codable.schema.statement Introduction expression codable.schema Expression x new__Expression__()
+cfd: codable.schema.statement Iteration instance null String x new__String__()
+cfd: codable.schema.statement Iteration qualifier null String x new__String__()
+cfd: codable.schema.statement Iteration qualifiee null String x new__String__()
+cfd: codable.schema.statement Iteration statements null List__<Statement> x new__ArrayList__<Statement>__()
+cfd: codable.schema.statement Condition predication codable.schema Expression x new__Expression__()
+cfd: codable.schema.statement Condition statements null List__<Statement> x new__ArrayList__<Statement>__()
+cfd: codable.schema.statement Condition alternative null Condition o new__Condition__()
+¢cfd: codable.schema.statement Ending
+
+cfd: codable.schema.function Cleanment value null String x ""
+cfd: codable.schema.function Tokenisement tokens null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.function Parsement expression codable.schema Expression x new__Expression__()
+cfd: codable.schema.function Linkment symbol null String x new__String__()
+cfd: codable.schema.function Linkment left null Linkment o new__Linkment__()
+cfd: codable.schema.function Linkment right null Linkment o new__Linkment__()
+cfd: codable.schema.function Compilement value null String x new__String__()
+
+cfd: codable.schema.procedure Cleanment value null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.procedure Tokenisement tokens null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.procedure Parsement statement null Statement x new__Statement__()
+cfd: codable.schema.procedure Parsement statements null List__<Statement> x new__ArrayList__<Statement>__()
+cfd: codable.schema.procedure Linkment links null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.procedure Compilement values null List__<String> x new__ArrayList__<String>__()
+
+cfd: codable.schema.template Cleanment value null String x new__String__()
+cfd: codable.schema.template Tokenisement tokens null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.template Tokenisement tokens2 null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.template Parsement statements null List__<Statement> x new__ArrayList__<Statement>__()
+cfd: codable.schema.template Linkment links null List__<String> x new__ArrayList__<String>__()
+cfd: codable.schema.template Compilement values null List__<String> x new__ArrayList__<String>__()
+
+mfd: codive Main arguments null List__<String> private new__ArrayList__<String>__()
+mfd: codive Main coding null String private new__String__("-code")
+mfd: codive Main cleaning null String private new__String__("-clean")
+mfd: codive Main template null String private new__String__("-from")
+mfd: codive Main mapping null String private new__String__("-via")
+mfd: codive Main dependency null String private new__String__("-with")
+mfd: codive Main inclusion null String private new__String__("-by")
+mfd: codive Main codement null String private new__String__("-to")

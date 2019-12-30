@@ -1,0 +1,33 @@
+#!/bin/bash
+
+origin=$(pwd)
+home=$(dirname $0)
+jars=lib/lrbh-fsio-0.0.jar
+cd $home
+
+#clean
+rm -r tmp 2> /dev/null
+
+#undeploy
+
+#compile
+mkdir tmp
+javac -d tmp -cp $jars -sourcepath src:tst tst/testing/Tester.java
+zero=$?
+
+#deploy
+cp etc/connector.properties tmp/main
+
+#test
+if test $zero -eq 0
+then
+  java -ea -cp tmp:$jars testing.Tester
+  echo "N. B.!  There was a testivation of testing.Tester."
+else echo "N. B.!  There was a testivation of testing.Tester -- not."
+fi
+
+#redeploy
+
+#use
+echo "Use!"
+cd $origin

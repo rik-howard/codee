@@ -1,0 +1,35 @@
+
+> relations
+Fdr: name*
+Fde: fdr.name* name*
+
+> records
+
+fdr: africa
+fdr: africa/southern
+fde: africa/southern south-africa
+fde: africa/southern zimbabwe
+
+fdr: america
+fdr: america/northern
+fde: america/northern canada
+
+fdr: antarctica
+fdr: antarctica/central
+fde: antarctica/central central-antarctica
+
+fdr: asia
+fdr: asia/south-western
+fde: asia/south-western turkey
+
+fdr: europe
+fdr: europe/north-eastern
+fde: europe/north-eastern lithuania
+
+fdr: oceania
+fdr: oceania/oceanic
+fde: oceania/oceanic the-federated-states-of-micronesia
+
+fdr: oceania
+fdr: oceania/western
+fde: oceania/western australia

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+origin=$(pwd)
+home=$(dirname $0)
+cd $home
+echo "Hello, from \\\\\\\\$home/build,"
+echo "\\\\\\\\$home is $home."
+
+# clean
+
+# undeploy
+
+# compile
+
+# deploy
+
+# test
+
+# redeploy
+
+# use
+
+cd $origin

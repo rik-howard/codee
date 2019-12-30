@@ -1,0 +1,49 @@
+
+> records
+
+pkg: info.lrbh.codable.schema info/lrbh/codable/schema
+
+cls: info.lrbh.codable.schema Symbol null null null fld null null symbol
+fld: info.lrbh.codable.schema Symbol name String Name new__String__()
+fld: info.lrbh.codable.schema Symbol value String Value new__String__()
+
+cls: info.lrbh.codable.schema Relation imp null null fld null null relation
+imp: info.lrbh.codable.schema Relation java.util.List
+imp: info.lrbh.codable.schema Relation java.util.ArrayList
+fld: info.lrbh.codable.schema Relation id String Id new__String__()
+fld: info.lrbh.codable.schema Relation names List__<String> Names new__ArrayList__<String>__()
+
+cls: info.lrbh.codable.schema Record imp null null fld null null record
+imp: info.lrbh.codable.schema Record java.util.List
+imp: info.lrbh.codable.schema Record java.util.ArrayList
+fld: info.lrbh.codable.schema Record ref String Ref new__String__()
+fld: info.lrbh.codable.schema Record names List__<String> Names new__ArrayList__<String>__()
+fld: info.lrbh.codable.schema Record values List__<String> Values new__ArrayList__<String>__()
+
+src: info.lrbh.codable.schema Expression null null null srf null null expression
+srf: info.lrbh.codable.schema Expression string String String new__String__() null
+srf: info.lrbh.codable.schema Expression left Expression Left null sr
+srf: info.lrbh.codable.schema Expression right Expression Right null sr
+
+cls: info.lrbh.codable.schema Function null null null fld null null function
+fld: info.lrbh.codable.schema Function signature Expression Signature new__Expression__()
+fld: info.lrbh.codable.schema Function body Expression Body new__Expression__()
+
+cls: info.lrbh.codable.schema Statement imp null null fld null null statement
+imp: info.lrbh.codable.schema Statement java.util.List
+imp: info.lrbh.codable.schema Statement java.util.ArrayList
+fld: info.lrbh.codable.schema Statement statements List__<Statement> Names new__ArrayList__<Statement>__()
+
+cls: info.lrbh.codable.schema Procedure imp null null fld null null procedure
+imp: info.lrbh.codable.schema Procedure java.util.List
+imp: info.lrbh.codable.schema Procedure java.util.ArrayList
+fld: info.lrbh.codable.schema Procedure statements List__<Statement> Names new__ArrayList__<Statement>__()
+
+cls: info.lrbh.codable.schema Template null null null fld null null template
+fld: info.lrbh.codable.schema Template string String String new__String__()
+
+cls: info.lrbh.codable.schema Vertex null null null fld null null vertex
+fld: info.lrbh.codable.schema Vertex prefix String Prefix new__String__()
+fld: info.lrbh.codable.schema Vertex infix String Infix new__String__()
+fld: info.lrbh.codable.schema Vertex suffix String Suffix new__String__()
+fld: info.lrbh.codable.schema Vertex symbolValueEOF String SymbolValueEOF new__String__()

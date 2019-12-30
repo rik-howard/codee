@@ -1,0 +1,30 @@
+
+> records
+
+pkg: info.lrbh.codive.schema.procedure info/lrbh/codive/schema/procedure
+
+mod: info.lrbh.codive.schema.procedure Parser imp null
+imp: info.lrbh.codive.schema.procedure Parser info.lrbh.codable.schema.Statement
+imp: info.lrbh.codive.schema.procedure Parser info.lrbh.codable.fsio.Line
+imp: info.lrbh.codive.schema.procedure Parser java.util.List
+imp: info.lrbh.codive.schema.procedure Parser java.util.ArrayList
+fno: info.lrbh.codive.schema.procedure Parser parsing Parsing List__<Statement> new__ArrayList__<Statement>__()
+arg: info.lrbh.codive.schema.procedure Parser parsing lines List__<Line> new__ArrayList__<Line>__()
+
+mod: info.lrbh.codive.schema.procedure Linker imp null
+imp: info.lrbh.codive.schema.procedure Linker info.lrbh.codable.Schema
+imp: info.lrbh.codive.schema.procedure Linker info.lrbh.codable.schema.Procedure
+imp: info.lrbh.codive.schema.procedure Linker info.lrbh.codable.schema.procedure.Link
+imp: info.lrbh.codive.schema.procedure Linker java.util.List
+imp: info.lrbh.codive.schema.procedure Linker java.util.ArrayList
+fno: info.lrbh.codive.schema.procedure Linker linking Linking List__<Link> new__ArrayList__<Link>__()
+arg: info.lrbh.codive.schema.procedure Linker linking procedure Procedure new__Procedure__()
+arg: info.lrbh.codive.schema.procedure Linker linking schema Schema new__Schema__()
+
+mod: info.lrbh.codive.schema.procedure Compiler imp null
+imp: info.lrbh.codive.schema.procedure Compiler info.lrbh.codable.schema.procedure.Link
+imp: info.lrbh.codive.schema.procedure Compiler info.lrbh.codable.schema.procedure.Compilement
+imp: info.lrbh.codive.schema.procedure Compiler java.util.List
+imp: info.lrbh.codive.schema.procedure Compiler java.util.ArrayList
+fno: info.lrbh.codive.schema.procedure Compiler compilation Compilation Compilement new__Compilement__()
+arg: info.lrbh.codive.schema.procedure Compiler compilation linkz List__<Link> new__ArrayList__<Link>__()

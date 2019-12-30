@@ -1,0 +1,5 @@
+    String string = tokenisee.value ();
+    for (String punctor: punctorsByLength ())
+      while (idsPunctivity (string, punctor))
+        string = depunctivated (string, punctor, "P" + punctors.indexOf (punctor));
+    return tokenisement (list (string.trim ().split (" +")));

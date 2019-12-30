@@ -1,0 +1,31 @@
+
+¢ codable
+¢   schema
+¢     expression
+¢     function
+¢     statement
+¢     procedure
+¢     template
+¢   fsio
+¢ codive
+¢   schema
+¢     function
+¢     procedure
+¢     template
+¢   auxilliary
+¢   utility
+
+> records
+
+pkg: codable.schema.function
+pkg: codable.schema.procedure
+pkg: codable.schema.template
+pkg: codable.schema.expression
+pkg: codable.schema.statement
+pkg: codable.schema
+pkg: codable
+pkg: codive.schema.function
+pkg: codive.schema.procedure
+pkg: codive.schema.template
+pkg: codive.schema
+pkg: codive

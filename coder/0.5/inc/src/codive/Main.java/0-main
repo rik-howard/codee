@@ -1,0 +1,18 @@
+    arguments.addAll (Arrays.asList (args));
+    if (findsFlag (coding)) Coder.code
+    (
+      flagged (template),
+      flagged (mapping),
+      flagged (dependency),
+      flagged (inclusion),
+      flagged (codement)
+    );
+    else if (findsFlag (cleaning)) Cleaner.clean
+    (
+      flagged (template),
+      flagged (mapping),
+      flagged (dependency),
+      flagged (inclusion),
+      flagged (codement)
+    );
+    else nb (0, "neither command was found: " + coding + " " + cleaning);

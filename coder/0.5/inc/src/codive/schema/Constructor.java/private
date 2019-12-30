@@ -1,0 +1,114 @@
+  private static final Schema construction (Map <String, List <Line>> linesBySector, String tptName)
+  {
+    Schema schema = new Schema ();
+    setSchemaRelations (schema, linesBySector.get (Schema.sectorRelations));
+    setSchemaRecords (schema, linesBySector.get   (Schema.sectorRecords  ));
+    setSchemaFunctions (schema, linesBySector.get (Schema.sectorFunctions));
+    setSchemaProcedure (schema, linesBySector.get (Schema.sectorProcedure));
+    setSchemaTemplate (schema, linesBySector.get  (Schema.sectorTemplate ));
+    setSchemaVertex (schema, tptName);
+    return schema;
+  }
+
+  private static final Map <String, List <Line>> linesBySector (List <Line> lines)
+  {
+    Map <String, List <Line>> linesBySector = new HashMap <String, List <Line>> ();
+    List <Line> rnz = new ArrayList <Line> ();
+    List <Line> rdz = new ArrayList <Line> ();
+    List <Line> fnz = new ArrayList <Line> ();
+    List <Line> pe = new ArrayList <Line> ();
+    List <Line> te = new ArrayList <Line> ();
+    String sector = Schema.sectorTemplate;
+    for (Line line: lines)
+      if (line.isSector ()) sector = line.sector ();
+      else if (sector.equals (Schema.sectorTemplate)) te.add (line);
+      else if (line.isEmpty ()) ;
+      else if (sector.equals (Schema.sectorRelations)) rnz.add (line);
+      else if (sector.equals (Schema.sectorRecords  )) rdz.add (line);
+      else if (sector.equals (Schema.sectorFunctions)) fnz.add (line);
+      else if (sector.equals (Schema.sectorProcedure)) pe.add (line);
+      else if (sector.equals (Schema.sectorTemplate )) te.add (line);
+      else nb (1, "the sector is unknown: " + sector);
+    linesBySector.put (Schema.sectorRelations, rnz);
+    linesBySector.put (Schema.sectorRecords  , rdz);
+    linesBySector.put (Schema.sectorFunctions, fnz);
+    linesBySector.put (Schema.sectorProcedure, pe);
+    linesBySector.put (Schema.sectorTemplate , te);
+    return linesBySector;
+  }
+
+  private static final void setSchemaRelations (Schema schema, List <Line> lines)
+  {
+    for (Line line: lines)
+      if (line.isRelation ())
+      {
+        String id = line.relationId ();
+        List <String> names = line.relationNames ();
+        Relation relation = new Relation (id, names);
+        schema.relations ().put (relation.key (), relation);
+      }
+      else nb (1, "the line is not a relation: " + line.toString ());
+  }
+
+  private static final void setSchemaRecords (Schema schema, List <Line> lines)
+  {
+    for (Line line: lines)
+      if (line.isRecord ())
+      {
+        String ref = line.recordRef ();
+        List <String> names = schema.relations ().get (line.recordRelationId ()).names ();
+        List <String> values = line.recordValues ();
+        Record record = new Record (ref, names, values);
+        schema.records ().put (record.key (), record);
+        schema.keys ().add (record.key ());
+      }
+      else nb (1, "the line is not a record: " + line.toString ());
+  }
+
+  private static final void setSchemaFunctions (Schema schema, List <Line> lines)
+  {
+    for (Line line: lines)
+      if (line.isFunction ())
+      {
+        codable.schema.function.Cleanment cleanment = codive.schema.function.Cleaner.cleaning (line.functionBody ());
+        codable.schema.function.Tokenisement tokenisement = codive.schema.function.Tokeniser.tokenisation (cleanment);
+        codable.schema.function.Parsement parsement = codive.schema.function.Parser.parsing (tokenisement);
+        Function function = new Function (line.functionName (), line.functionParamz (), parsement.expression ());
+        schema.functions ().put (function.key (), function);
+      }
+      else nb (1, "the line is not a function: " + line.toString ());
+  }
+
+  private static final void setSchemaProcedure (Schema schema, List <Line> lines)
+  {
+    codable.schema.procedure.Cleanment cleanment = codive.schema.procedure.Cleaner.cleaning (lines);
+    codable.schema.procedure.Tokenisement tokenisement = codive.schema.procedure.Tokeniser.tokenisation (cleanment);
+    codable.schema.procedure.Parsement parsement = codive.schema.procedure.Parser.parsing (tokenisement);
+    Procedure procedure = new Procedure (parsement.statements ());
+    schema.setProcedure (procedure);
+  }
+
+  private static final void setSchemaTemplate (Schema schema, List <Line> lines)
+  {
+    StringBuffer buffer = new StringBuffer ();
+    codable.schema.template.Cleanment cleanment = codive.schema.template.Cleaner.cleaning (lines);
+    codable.schema.template.Tokenisement tokenisement = codive.schema.template.Tokeniser.tokenisation (cleanment);
+    codable.schema.template.Parsement parsement = codive.schema.template.Parser.parsing (tokenisement);
+    Template template = new Template (parsement.statements ());
+    schema.setTemplate (template);
+  }
+
+  private static final void setSchemaVertex (Schema schema, String tptName)
+  {
+    StringBuffer prefix = new StringBuffer ();
+    StringBuffer infix = new StringBuffer ();
+    StringBuffer suffix = new StringBuffer ();
+    codable.schema.template.Cleanment cleanment = new codable.schema.template.Cleanment (tptName);
+    codable.schema.template.Tokenisement tokenisement = codive.schema.template.Tokeniser.tokenisation (cleanment);
+    while (tokenisement.hasTokens ())  // not supporting alternatives
+      if (tokenisement.hasIterator ()) prefix.append (tokenisement.token ());
+      else if (tokenisement.hasConditor ()) prefix.append (tokenisement.token ());
+      else if (tokenisement.hasEnding ()) suffix.append (tokenisement.token ());
+      else infix.append (tokenisement.token ());
+    schema.setVertex (new Vertex (prefix.toString (), infix.toString (), suffix.toString ()));
+  }

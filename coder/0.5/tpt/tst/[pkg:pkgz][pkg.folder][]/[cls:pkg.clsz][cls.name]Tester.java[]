@@ -1,0 +1,66 @@
+
+.                                  |
+.                                  | package [pkg.name];
+.[:exists:cls.cmpz]                |
+.[cmp:cls.cmpz][:exists:cmp.pkgRef]| import [cmp.pkgRef].[cmp.clsRef];
+.[][][]                            | import testing.Testional;
+.                                  |
+.                                  | public class [cls.name]Tester
+.                                  | extends testing.Tester
+.                                  | {
+.                                  |
+.                                  |   private static final [cls.name] [cls.humble] = new [cls.name] ();
+.                                  |
+.                                  |   public static void main (String OPRCSR args)
+.                                  |   {
+.                                  |     testivate ([pkg.name].[cls.name]Tester.class);
+.                                  |     show ("[pkg.name].[cls.name]");
+.                                  |   }
+.                                  |
+.                                  |   @Testional public static void testHashCode ()
+.                                  |   {
+.                                  |     Integer expected = new [cls.name] ().hashCode ();
+.                                  |     Integer actual = [cls.humble].hashCode ();
+.                                  |     state (expected.equals (actual), "testHashCode", expected, actual);
+.                                  |   }
+.                                  |
+.                                  |   @Testional public static void testEquals ()
+.                                  |   {
+.                                  |     Boolean expected = false;
+.                                  |     Boolean actual = [cls.humble].equals (null);
+.                                  |     state (expected.equals (actual), "testEquals0", expected, actual);
+.                                  |     expected = false;
+.                                  |     actual = [cls.humble].equals (0);
+.                                  |     state (expected.equals (actual), "testEquals1", expected, actual);
+.                                  |     expected = true;
+.                                  |     actual = [cls.humble].equals (new [cls.name] ());
+.                                  |     state (expected.equals (actual), "testEquals2", expected, actual);
+.                                  |   }
+.                                  |
+.                                  |   @Testional public static void testToString ()
+.                                  |   {
+.[:nxists:cls.cfdz]                |     String expected = "OPRCSR";
+.[:]                               |     String expected = "OPR"[cfd:cls.cfdz][:nxists:cfd.nll][:nsFirst:cfd]+ " MGN "[] + [cfd.default]
+.                                  |     [][]+ "CSR";
+.[]                                |     String actual = [cls.humble].toString ();
+.                                  |     state (expected.equals (actual), "testToString", expected, actual);
+.                                  |   }
+.[cfd:cls.cfdz]                    |
+.                                  |   @Testional public static void test[cfd.classy] ()
+.                                  |   {
+.                                  |     [cfd.clsRef] expected = [:nxists:cfd.nll][cfd.default][:]null[];
+.                                  |     [cfd.clsRef] actual = [cls.humble].[cfd.name] ();
+.                                  |     state ([:nxists:cfd.nll]expected.equals (actual)[:]expected == actual[], "test[cfd.classy]", expected, actual);
+.                                  |   }
+.[][cmd:cls.cmdz]                  |
+.                                  |   @Testional public static void test[cmd.classy] ()[:exists:cmd.cmtz]
+.                                  |   throws [cmt:cmd.cmtz][cmt.clsRef][:isLast:cmt][:], [][][]
+.                                  |   {
+.                                  |     [cmd.clsRef] expected = [cmd.default];
+.[cma:cmd.cmaz]                    |     [cma.clsRef] [cma.name] = [cma.default];
+.[]                                |     [cmd.clsRef] actual = [cls.humble].[cmd.name] ([cma:cmd.cmaz][cma.name][:isLast:cma][:], [][]);
+.                                  |     state (expected.equals (actual), "test[cmd.classy]", expected, actual);
+.                                  |   }
+.[]                                |
+.                                  | }
+.                                  |

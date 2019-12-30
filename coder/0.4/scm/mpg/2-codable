@@ -1,0 +1,34 @@
+
+> records
+
+pkg: info.lrbh.codable info/lrbh/codable
+
+ifc: info.lrbh.codable Schematic null null ivr null
+ivr: info.lrbh.codable Schematic eof new__String__("<eof>")
+
+cls: info.lrbh.codable Schema imp null iml fld null null schema
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Symbol
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Relation
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Record
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Function
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Procedure
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Template
+imp: info.lrbh.codable Schema info.lrbh.codable.schema.Vertex
+imp: info.lrbh.codable Schema java.util.Map
+imp: info.lrbh.codable Schema java.util.HashMap
+imp: info.lrbh.codable Schema java.util.List
+imp: info.lrbh.codable Schema java.util.ArrayList
+iml: info.lrbh.codable Schema Schematic
+fld: info.lrbh.codable Schema commentMarker String CommentMarker new__String__("COMMENT")
+fld: info.lrbh.codable Schema templateEOF String TemplateEOF new__String__("EOFILE")
+fld: info.lrbh.codable Schema templateMargin String TemplateMargin new__String__("MARGIN")
+fld: info.lrbh.codable Schema templateOpener String TemplateOpener new__String__("OPENER")
+fld: info.lrbh.codable Schema templateCloser String TemplateCloser new__String__("CLOSER")
+fld: info.lrbh.codable Schema symbols Map__<String,__Symbol> Symbols new__HashMap__<String,__Symbol>__()
+fld: info.lrbh.codable Schema relations Map__<String,__Relation> Relations new__HashMap__<String,__Relation>__()
+fld: info.lrbh.codable Schema records Map__<String,__Record> Records new__HashMap__<String,__Record>__()
+fld: info.lrbh.codable Schema functions Map__<String,__Function> Functions new__HashMap__<String,__Function>__()
+fld: info.lrbh.codable Schema procedure Procedure Procedure new__Procedure__()
+fld: info.lrbh.codable Schema template Template Template new__Template__()
+fld: info.lrbh.codable Schema vertex Vertex Vertex new__Vertex__()
+fld: info.lrbh.codable Schema keys List__<String> Keys new__ArrayList__<String>__()

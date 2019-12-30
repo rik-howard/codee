@@ -1,0 +1,18 @@
+
+> relations
+Tester: pkg.name* name*
+
+> functions
+tester (t): "tester:" & t.pkg.name & t.name
+
+> procedure
+for pkg in pkgz
+  for cls in pkg.clsz
+    intro tester (cls)
+  end
+end
+for pkg in pkgz
+  for mod in pkg.modz
+    intro tester (mod)
+  end
+end

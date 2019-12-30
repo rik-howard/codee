@@ -1,0 +1,33 @@
+#!/bin/bash
+
+function checkContainment ()
+{
+  fileName=$1
+  list="$(unzip -l tgt/template-project.zip)"
+  if test "$list" == "$(echo $list | sed "s,$fileName,,g")"
+  then echo "not contains tgt/template-project.zip $fileName"
+  else echo -n .
+  fi
+}
+
+checkContainment africa
+checkContainment africa/southern
+checkContainment south-africa
+checkContainment zimbabwe
+checkContainment america
+checkContainment america/northern
+checkContainment canada
+checkContainment antarctica
+checkContainment antarctica/central
+checkContainment central-antarctica
+checkContainment asia
+checkContainment asia/south-western
+checkContainment turkey
+checkContainment europe
+checkContainment europe/north-eastern
+checkContainment lithuania
+checkContainment oceania
+checkContainment oceania/oceanic
+checkContainment the-federated-states-of-micronesia
+checkContainment oceania/western
+checkContainment australia

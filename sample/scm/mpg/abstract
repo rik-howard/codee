@@ -1,0 +1,64 @@
+
+
+
+> relations
+
+Can: name*
+Bean: can.name* name* type idLength
+Ugo: can.name* bean.name* name* refCan refBean length javaDefault
+Ego: can.name* bean.name* name* sqlType javaType jdbcType length precision nullNeg javaDefault
+Kee: can.name* bean.name* ordinal*
+Part: can.name* bean.name* kee.ordinal* name* sqlType javaTypeQ length precision
+
+
+
+> records
+
+can: eg.bio
+bean: eg.bio person InnoDB 9
+ego: eg.bio person latitude decimal Double Double 5 2 not new__Double__(0.0)
+ego: eg.bio person longitude decimal Double Double 5 2 not new__Double__(0.0)
+ego: eg.bio person altitude decimal Double Double 5 2 not new__Double__(0.0)
+ego: eg.bio person birth datetime Date Date null null not new__Date__(0)
+ego: eg.bio person death datetime Date Date null null null new__Date__(0)
+kee: eg.bio person 0
+part: eg.bio person 0 latitude decimal Double 5 2
+part: eg.bio person 0 longitude decimal Double 5 2
+part: eg.bio person 0 altitude decimal Double 5 2
+part: eg.bio person 0 birth datetime Date null null
+
+
+
+can: eg.geo
+
+bean: eg.geo continent InnoDB 1
+ego: eg.geo continent code character String String 1 null not new__String__()
+ego: eg.geo continent name character String String 12 null not new__String__()
+kee: eg.geo continent 0
+part: eg.geo continent 0 code character String 1 null
+kee: eg.geo continent 1
+part: eg.geo continent 1 name character String 12 null
+
+bean: eg.geo compass InnoDB 1
+ego: eg.geo compass code character String String 2 null not new__String__()
+ego: eg.geo compass name character String String 16 null not new__String__()
+kee: eg.geo compass 0
+part: eg.geo compass 0 code character String 2 null
+kee: eg.geo compass 1
+part: eg.geo compass 1 name character String 16 null
+
+bean: eg.geo subcontinent InnoDB 2
+ugo: eg.geo subcontinent continent eg.geo continent 1 new__Continent__()
+ugo: eg.geo subcontinent compass eg.geo compass 1 new__Compass__()
+kee: eg.geo subcontinent 0
+part: eg.geo subcontinent 0 continent_id integer Integer 1 null
+part: eg.geo subcontinent 0 compass_id integer Integer 1 null
+
+bean: eg.geo country InnoDB 3
+ugo: eg.geo country subcontinent eg.geo subcontinent 2 new__Subcontinent__()
+ego: eg.geo country code character String String 3 null not new__String__()
+ego: eg.geo country name character String String 48 null not new__String__()
+kee: eg.geo country 0
+part: eg.geo country 0 code character String 3 null
+kee: eg.geo country 1
+part: eg.geo country 1 name character String 48 null

@@ -1,0 +1,36 @@
+
+.                                  |
+.                                  | package [pkg.name];
+.                                  |
+.[mmp:mod.mmpz][:exists:mmp.pkgRef]| import [mmp.pkgRef].[mmp.clsRef];
+.[][]                              | import testing.Testional;
+.                                  |
+.                                  | public class [mod.name]Tester
+.                                  | extends testing.Tester
+.                                  | {
+.                                  |
+.                                  |   public static void main (String OPRCSR args)
+.                                  |   {
+.                                  |     testivate ([pkg.name].[mod.name]Tester.class);
+.                                  |     show ("[pkg.name].[mod.name]");
+.                                  |   }
+.[mfd:mod.mfdz]                    |
+.                                  |   @Testional public static void test[mfd.classy] ()
+.                                  |   {
+.                                  |     [mfd.clsRef] expected = [mfd.default];
+.                                  |     [mfd.clsRef] actual = [mod.name].[mfd.name];
+.                                  |     state (expected.equals (actual), "test[mfd.classy]", expected, actual);
+.                                  |   }
+.[][mmd:mod.mmdz]                  |
+.                                  |   @Testional public static void test[mmd.classy][mmd.ordinal] ()[:exists:mmd.mmtz]
+.                                  |   throws [mmt:mmd.mmtz][mmtt.clsRef][:isLast:mmt][:], [][][]
+.                                  |   {
+.[mma:mmd.mmaz]                    |     [mma.clsRef] [mma.name] = [mma.default];
+.[][:exists:mmd.vd]                |     [mod.name].[mmd.name] ([mma:mmd.mmaz][mma.name][:isLast:mma][:], [][]);
+.[:]                               |     [mmd.clsRef] expected = [mmd.default];
+.                                  |     [mmd.clsRef] actual = [mod.name].[mmd.name] ([mma:mmd.mmaz][mma.name][:isLast:mma][:], [][]);
+.                                  |     state (expected.equals (actual), "test[mmd.classy]", expected, actual);
+.[]                                |   }
+.[]                                |
+.                                  | }
+.                                  |

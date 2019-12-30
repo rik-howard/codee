@@ -1,0 +1,51 @@
+codee schema sample
+rik at lrbh info
+2010-08-21
+
+
+
+What is ...
+
+This sample project is codable, that is, it defines a schema to be consumed by Coder, which will compose the schema's template and mapping, to produce code.  This schema defines a general set of records.  It then defines some functions and procedures to map the general records to ones particular to the Java and SQL templates.
+
+
+
+How to ...
+
+Satisfy the following dependencies, to generate the code to the prompt
+. jdk-1.6
+. bash (cygwin?)
+. lrbh-coder-0.4
+. lrbh-recurser-0.6
+
+The following are necessary to execute the SQL and JDBC components
+. mysql-connector-java-5.1
+. mysql-5.0
+
+Install the project
+
+  > pjt=~/project/codee-sample
+  > svn export http://lrbh-svn.cvsdude.com/public/codee/schema/sample $pjt
+
+Customise $pjt/envment to your system
+
+  > source $pjt/envment
+
+The following step displays the generated code at the prompt.  This is useful when developing a schema
+
+  > $pjt/set-up
+
+You will probably need to customise some of the files, before running the set-up to completion.  In
+
+  $pjt/scm/tpt/sql/create
+  $pjt/scm/tpt/java/src/[pkg:pkgz][pkg.folder][]/[cls:pkg.clsz][cls.name]Persistor.java[]
+
+ensure that the user name and password are appropriate to your MySQL installation
+
+The following step creates a folder called coded-sample and then invokes the creation, compilation and usage scripts
+
+  > $pjt/set-up coded-sample
+
+Compare the output of the above to
+
+  > $pjt/set-up | coder-grep eg/Main

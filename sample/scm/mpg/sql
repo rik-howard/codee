@@ -1,0 +1,95 @@
+
+
+
+> relations
+
+Db: name*
+Tb: db.name* name* type idLength
+Fk: db.name* tb.name* name* refDb refTb length
+Nk: db.name* tb.name* name* type length precision nullNeg
+Uk: db.name* tb.name* ordinal*
+Pt: db.name* tb.name* uk.ordinal* name* type length precision
+
+Fd: db.name* tb.name* name* type length precision
+
+
+
+> records
+
+
+
+> functions
+
+dbName (can): leaf (can.name, ".")
+
+tbName (bean): score (bean.name)
+tbType (bean): bean.type
+tbIdLength (bean): bean.idLength
+
+fkName (ugo): score (ugo.name)
+fkRefDb (ugo): score (leaf (ugo.refCan, "."))
+fkRefTb (ugo): score (ugo.refBean)
+fkLength (ugo): ugo.length
+
+nkName (ego): score (ego.name)
+nkType (ego): ego.sqlType
+nkLength (ego): ego.length
+nkPrecision (ego): ego.precision
+nkNullNeg (ego): ego.nullNeg
+
+ukOrdinal (kee): kee.ordinal
+
+ptName (part): part.name
+ptType (part): part.sqlType
+ptLength (part): part.length
+ptPrecision (part): part.precision
+
+db (can): "db:" & dbName (can)
+tb (can, bean): "tb:" & dbName (can) & tbName (bean) & tbType (bean) & tbIdLength (bean)
+fk (can, bean, ugo): "fk:" & dbName (can) & tbName (bean) & fkName (ugo) & fkRefDb (ugo) & fkRefTb (ugo) & fkLength (ugo)
+nk (can, bean, ego): "nk:" & dbName (can) & tbName (bean) & nkName (ego) & nkType (ego) & nkLength (ego) & nkPrecision (ego) & nkNullNeg (ego)
+uk (can, bean, kee): "uk:" & dbName (can) & tbName (bean) & ukOrdinal (kee)
+pt (can, bean, kee, part): "pt:" & dbName (can) & tbName (bean) & ukOrdinal (kee) & ptName (part) & ptType (part) & ptLength (part) & ptPrecision (part)
+
+ugoFdName (ugo): joining (ugo.name, "id", "_")
+
+ugoFd (can, bean, ugo): "fd:" & dbName (can) & tbName (bean) & ugoFdName (ugo) & "integer" & fkLength (ugo) & "null"
+egoFd (can, bean, ego): "fd:" & dbName (can) & tbName (bean) & nkName (ego) & nkType (ego) & nkLength (ego) & nkPrecision (ego)
+
+
+
+> procedure
+
+¢ these introductions are for table.sql
+for c in canz
+  intro db (c)
+  for b in c.beanz
+    intro tb (c, b)
+    for u in b.ugoz
+      intro fk (c, b, u)
+    end
+    for e in b.egoz
+      intro nk (c, b, e)
+    end
+    for k in b.keez
+      intro uk (c, b, k)
+      for p in k.partz
+        intro pt (c, b, k, p)
+      end
+    end
+  end
+end
+
+¢ these introductions are for procedures.sql
+for c in canz
+  for b in c.beanz
+    for u in b.ugoz
+      intro ugoFd (c, b, u)
+    end
+    for e in b.egoz
+      intro egoFd (c, b, e)
+    end
+  end
+end
+
+

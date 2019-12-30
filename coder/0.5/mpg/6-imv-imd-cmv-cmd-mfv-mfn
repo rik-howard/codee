@@ -1,0 +1,45 @@
+
+> records
+
+cmv: codable Schema 0 dump
+cmv: codable Schema 1 renew
+
+cmd: codable.schema Relation 0 key null String ""
+cmd: codable.schema Record 0 key null String ""
+cmd: codable.schema Function 0 key null String ""
+
+cmd: codable.schema.template Tokenisement 0 hasTokens null Boolean false
+cmd: codable.schema.template Tokenisement 1 hasIterator null Boolean false
+cmd: codable.schema.template Tokenisement 2 hasConditor null Boolean false
+cmd: codable.schema.template Tokenisement 3 hasEnding null Boolean false
+cmd: codable.schema.template Tokenisement 4 token null String new__String__()
+
+mmd: codive Main 0 main
+mmd: codive Coder 0 code
+mmd: codive Cleaner 0 clean
+
+mmd: codive.schema Constructor 0 construction codable Schema new__Schema__()
+mmd: codive.schema Mapper 0 mapping codable Schema new__Schema__()
+mmd: codive.schema Transformer 0 namesTransformation null List__<String> new__ArrayList__<String>__()
+mmd: codive.schema Transformer 1 valuesTransformation null List__<String> new__ArrayList__<String>__()
+mmd: codive.schema Injector 0 injection null List__<String> new__ArrayList__<String>__()
+mmd: codive.schema Aggregator 0 aggregation null List__<Folden> new__ArrayList__<Folden>__()
+mmd: codive.schema Persistor 0 persist
+
+mmd: codive.schema.function Cleaner 0 cleaning codable.schema.function Cleanment new__Cleanment__()
+mmd: codive.schema.function Tokeniser 0 tokenisation codable.schema.function Tokenisement new__Tokenisement__()
+mmd: codive.schema.function Parser 0 parsing codable.schema.function Parsement new__Parsement__()
+mmd: codive.schema.function Linker 0 linking codable.schema.function Linkment new__Linkment__()
+mmd: codive.schema.function Compiler 0 compilation codable.schema.function Compilement new__Compilement__()
+
+mmd: codive.schema.procedure Cleaner 0 cleaning codable.schema.procedure Cleanment new__Cleanment__()
+mmd: codive.schema.procedure Tokeniser 0 tokenisation codable.schema.procedure Tokenisement new__Tokenisement__()
+mmd: codive.schema.procedure Parser 0 parsing codable.schema.procedure Parsement new__Parsement__()
+mmd: codive.schema.procedure Linker 0 linking codable.schema.procedure Linkment new__Linkment__()
+mmd: codive.schema.procedure Compiler 0 compilation codable.schema.procedure Compilement new__Compilement__()
+
+mmd: codive.schema.template Cleaner 0 cleaning codable.schema.template Cleanment new__Cleanment__()
+mmd: codive.schema.template Tokeniser 0 tokenisation codable.schema.template Tokenisement new__Tokenisement__()
+mmd: codive.schema.template Parser 0 parsing codable.schema.template Parsement new__Parsement__()
+mmd: codive.schema.template Linker 0 linking codable.schema.template Linkment new__Linkment__()
+mmd: codive.schema.template Compiler 0 compilation codable.schema.template Compilement new__Compilement__()

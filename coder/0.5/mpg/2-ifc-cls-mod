@@ -1,0 +1,72 @@
+
+> records
+
+ifc: codable Schematic
+
+cls: codable Schema
+
+cls: codable.schema Relation
+cls: codable.schema Record
+cls: codable.schema Expression
+cls: codable.schema Function
+cls: codable.schema Statement
+cls: codable.schema Procedure
+cls: codable.schema Template
+cls: codable.schema Vertex
+
+cls: codable.schema.expression Constant
+cls: codable.schema.expression Variable
+cls: codable.schema.expression Invocation
+cls: codable.schema.expression Arithmetion
+
+cls: codable.schema.statement Introduction
+cls: codable.schema.statement Iteration
+cls: codable.schema.statement Condition
+cls: codable.schema.statement Ending
+
+cls: codable.schema.function Cleanment
+cls: codable.schema.function Tokenisement
+cls: codable.schema.function Parsement
+cls: codable.schema.function Linkment
+cls: codable.schema.function Compilement
+
+cls: codable.schema.procedure Cleanment
+cls: codable.schema.procedure Tokenisement
+cls: codable.schema.procedure Parsement
+cls: codable.schema.procedure Linkment
+cls: codable.schema.procedure Compilement
+
+cls: codable.schema.template Cleanment
+cls: codable.schema.template Tokenisement
+cls: codable.schema.template Parsement
+cls: codable.schema.template Linkment
+cls: codable.schema.template Compilement
+
+mod: codive Coder
+mod: codive Cleaner
+mod: codive Main
+
+mod: codive.schema Constructor
+mod: codive.schema Mapper
+mod: codive.schema Transformer
+mod: codive.schema Injector
+mod: codive.schema Aggregator
+mod: codive.schema Persistor
+
+mod: codive.schema.function Cleaner
+mod: codive.schema.function Tokeniser
+mod: codive.schema.function Parser
+mod: codive.schema.function Linker
+mod: codive.schema.function Compiler
+
+mod: codive.schema.procedure Cleaner
+mod: codive.schema.procedure Tokeniser
+mod: codive.schema.procedure Parser
+mod: codive.schema.procedure Linker
+mod: codive.schema.procedure Compiler
+
+mod: codive.schema.template Cleaner
+mod: codive.schema.template Tokeniser
+mod: codive.schema.template Parser
+mod: codive.schema.template Linker
+mod: codive.schema.template Compiler

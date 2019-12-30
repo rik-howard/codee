@@ -1,0 +1,170 @@
+#!/bin/bash
+
+function help ()
+{
+  echo "l r b h - c o d e r :   s e t - u p"
+  echo
+  echo "use"
+  echo "  > set-up flag [mask [high-light]]"
+  echo
+  echo "where flag"
+  echo "  -f: view the vanilla template"
+  echo "  -v: preview the mapped template"
+  echo "  -w: generate the mapped template with dependencies"
+  echo "  -b: preview the woven template"
+  echo "  -t: generate the woven template with dependencies"
+  echo "  -c: clean the generated ..."
+  echo "   *: invoke this help message"
+  echo
+  echo "the optional parameters are used when (pre)viewing"
+  echo "  mask: matches a subline, displaying thence to the eof"
+  echo "  high-lite: colours all matches displayed"
+  echo
+}
+
+function doFrom ()
+{
+  if test -z "$mask"
+  then coder -code -from $tpt | hilited foldee
+  else coder -code -from $tpt | $upSetter/filtered $mask $hilite
+  fi
+}
+
+function doVia ()
+{
+  if test -z "$mask"
+  then coder -code -from $tpt -via $mpg | hilited foldee
+  else coder -code -from $tpt -via $mpg | $upSetter/filtered $mask $hilite
+  fi
+}
+
+function doWith ()
+{
+  echo
+  echo "compiling the generated code ..."
+  if test -d $cdt
+  then
+    echo
+    echo ". destroying the target: $cdt"
+    $upSetter/removeSansHidden $cdt
+  fi
+  echo
+  echo ".   creating the target: $cdt"
+  echo ".                  from: $tpt"
+  echo ".                   via: $mpg"
+  if test -d $dep
+  then
+    echo
+    echo ". supporting the target: $cdt"
+    echo ".                  with: $dep"
+    coder -code -from $tpt -via $mpg -with $dep -to $cdt
+  else
+    coder -code -from $tpt -via $mpg -to $cdt
+  fi
+  echo
+  echo ".   building the target:"
+  echo
+  chmod 755 $cdt/build
+  $cdt/build
+  echo
+}
+
+function doBy ()
+{
+  if test -d $inc
+  then
+    if test -z "$mask"
+    then coder -code -from $tpt -via $mpg -by $inc | hilited foldee
+    else coder -code -from $tpt -via $mpg -by $inc | $upSetter/filtered $mask $hilite
+    fi
+  elif test -z "$mask"
+  then coder -code -from $tpt -via $mpg | hilited foldee
+  else coder -code -from $tpt -via $mpg | $upSetter/filtered $mask $hilite
+  fi
+}
+
+function doTo ()
+{
+  echo
+  echo "compiling the customised code ..."
+  if test -d $cdt
+  then
+    echo
+    echo ". destroying the target: $cdt"
+    $upSetter/removeSansHidden $cdt
+  fi
+  echo
+  echo ".   creating the target: $cdt"
+  echo ".                  from: $tpt"
+  echo ".                   via: $mpg"
+  if test -d $dep
+  then
+    echo
+    echo ". supporting the target: $cdt"
+    echo ".                  with: $dep"
+    if test -d $inc
+    then
+      echo
+      echo ".   updating the target: $cdt"
+      echo ".                    by: $inc"
+      coder -code -from $tpt -via $mpg -with $dep -by $inc -to $cdt
+    else coder -code -from $tpt -via $mpg -with $dep -to $cdt
+    fi
+  elif test -d $inc
+  then
+    echo
+    echo ".   updating the target: $cdt"
+    echo ".                    by: $inc"
+    coder -code -from $tpt -via $mpg -by $inc -to $cdt
+  else
+    coder -code -from $tpt -via $mpg -to $cdt
+    echo
+  fi
+  echo
+  echo ".   building the target:"
+  echo
+  chmod 755 $cdt/build
+  $cdt/build
+  echo
+}
+
+function go ()
+{
+  clear
+  echo "$(basename $scm)/set-up $cmd $mask $hilite"
+  echo
+  #if test -z "$cmd"
+  #then doFrom
+  #else
+    case $cmd
+    in
+    "-f") doFrom;;
+    "-v") doVia;;
+    "-w") doWith;;
+    "-b") doBy;;
+    "-t") doTo;;
+    "-c") clean;;
+      * ) help;;
+    esac
+  #fi
+}
+
+cdr=$CODER_HOME
+scm=$(dirname $0)
+pjt=$scm
+
+upSetter=$cdr/src/up-setter
+
+tpt=$scm/tpt
+mpg=$scm/mpg
+dep=$scm/dep
+inc=$scm/inc
+cdt=$scm/cdt
+
+cmd=$1
+mask=$2
+hilite=$3
+
+source $upSetter/filters
+
+go

@@ -1,0 +1,15 @@
+.                | #!/bin/bash
+.                |
+.                | function checkContainment ()
+.                | {
+.                |   fileName=$1
+.                |   list="$(unzip -l tgt/[project.name].zip)"
+.                |   if test "$list" == "$(echo $list | sed "s,$fileName,,g")"
+.                |   then echo "not contains tgt/[project.name].zip $fileName"
+.                |   else echo -n .
+.                |   fi
+.                | }
+.                |
+.[fdr:fdrz]      | checkContainment [fdr.name]
+.[fde:fdr.fdez]  | checkContainment [fde.name]
+.[][]            |

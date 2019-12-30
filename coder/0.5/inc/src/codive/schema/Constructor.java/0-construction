@@ -1,0 +1,7 @@
+    List <Line> lines;
+    if (tptLines == null)
+      if (mpgLines == null) lines = empty (new Line ());
+      else lines = mpgLines;
+    else if (mpgLines == null) lines = tptLines;
+    else lines = union (tptLines, mpgLines);
+    return construction (linesBySector (lines), tptName);

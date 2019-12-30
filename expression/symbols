@@ -1,0 +1,27 @@
+#!/bin/bash
+
+i=0
+export comment=$(( i++ ))
+export opener=$(( i++ ))
+export closer=$(( i++ ))
+export margin=$(( i++ ))
+export space=$(( i++ ))
+export eof=$(( i++ ))
+export n=$(( i++ ))
+
+names[$comment]="CMT"
+names[$opener]="OPR"
+names[$closer]="CSR"
+names[$margin]="MGN"
+names[$space]="__"
+names[$eof]="EOF"
+
+values[$comment]="¢"
+values[$opener]="["
+values[$closer]="]"
+values[$margin]="|"
+values[$space]=" "
+values[$eof]="€"
+
+#export names[*]
+#export values
